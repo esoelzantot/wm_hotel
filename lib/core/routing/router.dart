@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:wm_hotel/core/helpers/app_transitions.dart';
+import 'package:wm_hotel/core/routing/end_points.dart';
+import 'package:wm_hotel/features/home/presentation/views/home_view.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
-    // initialLocation: EndPoints.splashView,
+    initialLocation: EndPoints.homeView,
     routes: [
       // ============================================================
       // Splash Screen - Quick Fade
@@ -18,14 +21,12 @@ class AppRouter {
       // ============================================================
       // Home Screen - Smooth Fade
       // ============================================================
-      // GoRoute(
-      //   path: EndPoints.homeView,
-      //   name: 'Home View',
-      //   pageBuilder: (context, state) => AppTransitions.smoothFade(
-      //     state.pageKey,
-      //     const HomeView(),
-      //   ),
-      // ),
+      GoRoute(
+        path: EndPoints.homeView,
+        name: 'Home View',
+        pageBuilder: (context, state) =>
+            AppTransitions.smoothFade(state.pageKey, const HomeView()),
+      ),
 
       // ============================================================
       // Articles Screen - Smooth Fade
