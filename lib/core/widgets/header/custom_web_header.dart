@@ -28,7 +28,7 @@ class _CustomWebHeaderState extends State<CustomWebHeader> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Container(
-        height: 90,
+        height: 100,
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -45,12 +45,15 @@ class _CustomWebHeaderState extends State<CustomWebHeader> {
             // ── Logo ──────────────────────────────────────────────
             HeaderLogo(),
 
-            const SizedBox(width: 48),
+            const SizedBox(width: 32),
 
             // ── Nav Items ─────────────────────────────────────────
             Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+              child: Wrap(
+                alignment: WrapAlignment.start,
+                runAlignment: WrapAlignment.center,
+                spacing: 0,
+                runSpacing: 4,
                 children: List.generate(_navItems.length, (i) {
                   final isActive = _activeIndex == i;
                   final isHovered = _hoveredIndex == i;
@@ -62,7 +65,10 @@ class _CustomWebHeaderState extends State<CustomWebHeader> {
                     child: GestureDetector(
                       onTap: () => setState(() => _activeIndex = i),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 14),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 14,
+                          vertical: 4,
+                        ),
                         child: NavItem(
                           label: _navItems[i],
                           isActive: isActive,
