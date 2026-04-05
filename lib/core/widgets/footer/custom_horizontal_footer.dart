@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
+import 'package:wm_hotel/core/widgets/footer/copyright_bar.dart';
 import 'package:wm_hotel/core/widgets/footer/footer_brand_column.dart';
 import 'package:wm_hotel/core/widgets/footer/footer_contact_column.dart';
 import 'package:wm_hotel/core/widgets/footer/footer_links_column.dart';
@@ -39,10 +40,12 @@ class CustomHorizontalFooter extends StatelessWidget {
             ],
           ),
 
-          const SizedBox(height: 48),
+          const SizedBox(height: 12),
 
           // ── Divider ───────────────────────
           const Divider(color: AppColors.divider, thickness: 0.5),
+          const SizedBox(height: 12),
+          SizedBox(width: double.infinity, child: CopyrightBar()),
         ],
       ),
     );

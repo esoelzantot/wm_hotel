@@ -138,6 +138,46 @@ class S {
       args: [],
     );
   }
+
+  /// `© 2026 White Moon Hotel Website. All rights reserved.`
+  String get footer_copy_right {
+    return Intl.message(
+      '© 2026 White Moon Hotel Website. All rights reserved.',
+      name: 'footer_copy_right',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Developed by `
+  String get footer_developed_by {
+    return Intl.message(
+      'Developed by ',
+      name: 'footer_developed_by',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `AXURAA`
+  String get footer_company_name {
+    return Intl.message(
+      'AXURAA',
+      name: 'footer_company_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `. Powered by Flutter.`
+  String get footer_powered_by {
+    return Intl.message(
+      '. Powered by Flutter.',
+      name: 'footer_powered_by',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

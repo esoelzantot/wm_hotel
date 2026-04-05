@@ -24,14 +24,24 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about_us_tab": MessageLookupByLibrary.simpleMessage("About Us"),
     "contact_now_btn": MessageLookupByLibrary.simpleMessage("Contact Now"),
+    "footer_company_name": MessageLookupByLibrary.simpleMessage("AXURAA"),
     "footer_contact_us_column": MessageLookupByLibrary.simpleMessage(
       "Contact Us",
+    ),
+    "footer_copy_right": MessageLookupByLibrary.simpleMessage(
+      "© 2026 White Moon Hotel Website. All rights reserved.",
+    ),
+    "footer_developed_by": MessageLookupByLibrary.simpleMessage(
+      "Developed by ",
     ),
     "footer_hotel_brief_content": MessageLookupByLibrary.simpleMessage(
       "Experience the perfect blend of luxury and Arabian hospitality at White Moon Hotel, Saudi Arabia. We offer a wide range of elegantly designed rooms and suites tailored to meet all your needs, complemented by premium hospitality facilities and world-class services. Whether you are visiting for business or leisure, White Moon is dedicated to making every moment of your stay exceptional.",
     ),
     "footer_hotel_brief_title": MessageLookupByLibrary.simpleMessage(
       "Your Ultimate Gateway to Comfort in KSA",
+    ),
+    "footer_powered_by": MessageLookupByLibrary.simpleMessage(
+      ". Powered by Flutter.",
     ),
     "footer_quick_links_column": MessageLookupByLibrary.simpleMessage(
       "Quick Links",

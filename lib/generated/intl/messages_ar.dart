@@ -24,14 +24,24 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about_us_tab": MessageLookupByLibrary.simpleMessage("من نحن"),
     "contact_now_btn": MessageLookupByLibrary.simpleMessage("تواصل الأن"),
+    "footer_company_name": MessageLookupByLibrary.simpleMessage("أكسورا"),
     "footer_contact_us_column": MessageLookupByLibrary.simpleMessage(
       "تواصل معنا",
+    ),
+    "footer_copy_right": MessageLookupByLibrary.simpleMessage(
+      "© 2026 جميع الحقوق محفوظة لموقع فندق وايت مون.",
+    ),
+    "footer_developed_by": MessageLookupByLibrary.simpleMessage(
+      "تم التطوير بواسطة ",
     ),
     "footer_hotel_brief_content": MessageLookupByLibrary.simpleMessage(
       "يقدم فندق وايت مون تجربة فندقية متكاملة تجمع بين الأصالة والراحة العصرية في المملكة العربية السعودية. نوفر باقة متنوعة من الغرف والأجنحة المجهزة بأعلى المعايير لتلبي كافة تطلعاتكم، إلى جانب مرافق ضيافة راقية وخدمات فندقية متميزة تضمن لكم إقامة لا تُنسى. سواء كنتم في رحلة عمل أو استجمام، نحن هنا لنجعل من إقامتكم تجربة استثنائية.",
     ),
     "footer_hotel_brief_title": MessageLookupByLibrary.simpleMessage(
       "وجهتكم المثالية للإقامة في قلب المملكة",
+    ),
+    "footer_powered_by": MessageLookupByLibrary.simpleMessage(
+      ". يعمل بواسطة Flutter.",
     ),
     "footer_quick_links_column": MessageLookupByLibrary.simpleMessage(
       "الروابط السريعة",
