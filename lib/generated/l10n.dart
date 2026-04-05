@@ -54,6 +54,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `White Moon Hotel`
+  String get hotel_name {
+    return Intl.message(
+      'White Moon Hotel',
+      name: 'hotel_name',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Home`
   String get home_tab {
     return Intl.message('Home', name: 'home_tab', desc: '', args: []);
@@ -84,6 +94,46 @@ class S {
     return Intl.message(
       'Contact Now',
       name: 'contact_now_btn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Ultimate Gateway to Comfort in KSA`
+  String get footer_hotel_brief_title {
+    return Intl.message(
+      'Your Ultimate Gateway to Comfort in KSA',
+      name: 'footer_hotel_brief_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Experience the perfect blend of luxury and Arabian hospitality at White Moon Hotel, Saudi Arabia. We offer a wide range of elegantly designed rooms and suites tailored to meet all your needs, complemented by premium hospitality facilities and world-class services. Whether you are visiting for business or leisure, White Moon is dedicated to making every moment of your stay exceptional.`
+  String get footer_hotel_brief_content {
+    return Intl.message(
+      'Experience the perfect blend of luxury and Arabian hospitality at White Moon Hotel, Saudi Arabia. We offer a wide range of elegantly designed rooms and suites tailored to meet all your needs, complemented by premium hospitality facilities and world-class services. Whether you are visiting for business or leisure, White Moon is dedicated to making every moment of your stay exceptional.',
+      name: 'footer_hotel_brief_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quick Links`
+  String get footer_quick_links_column {
+    return Intl.message(
+      'Quick Links',
+      name: 'footer_quick_links_column',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Us`
+  String get footer_contact_us_column {
+    return Intl.message(
+      'Contact Us',
+      name: 'footer_contact_us_column',
       desc: '',
       args: [],
     );

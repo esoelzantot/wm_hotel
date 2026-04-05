@@ -4,7 +4,7 @@ import 'package:wm_hotel/core/utils/app_colors.dart';
 
 abstract class AppStyles {
   static const fontFamily = 'Beiruti';
-  static const textHeight = 1.4;
+  static const textHeight = 1.5;
   static const letterSpacing = 1.2;
 
   // Styles 12

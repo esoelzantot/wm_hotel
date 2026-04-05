@@ -9,8 +9,12 @@ abstract class AppColors {
 
   static const Color buttonColor = Color(0xff00499A);
 
+  static const Color divider = Color(0x33C8B998);
+
   static const Color mainTextColor = Color(0xff1f1f1f);
   static const Color subTextColor = Color(0xff969696);
+
+  static const Color textMuted = Color(0x99E8E0D4);
 
   static const Color successColor = Color(0xff3BC577);
   static const Color warningColor = Color(0xffFF9F04);
