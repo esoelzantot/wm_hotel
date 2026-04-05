@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/widgets/footer/custom_horizontal_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_web_header.dart';
+import 'package:wm_hotel/features/home/presentation/widgets/layouts/custom_hero_section.dart';
 
 class HomeViewWebLayout extends StatelessWidget {
   const HomeViewWebLayout({super.key});
@@ -14,7 +15,14 @@ class HomeViewWebLayout extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 90), // Space for the fixed header
+
+              Padding(
+                padding: const EdgeInsets.all(24),
+                child: CustomHeroSection(),
+              ),
+
               // Footer
+              SizedBox(height: 32),
               CustomHorizontalFooter(),
             ],
           ),

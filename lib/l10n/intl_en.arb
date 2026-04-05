@@ -15,5 +15,9 @@
   "footer_copy_right": "© 2026 White Moon Hotel Website. All rights reserved.",
   "footer_developed_by": "Developed by ",
   "footer_company_name": "AXURAA",
-  "footer_powered_by": ". Powered by Flutter."
+  "footer_powered_by": ". Powered by Flutter.",
+
+  "home_hero_title": "Unveiling a New Standard of Luxury in KSA",
+  "home_hero_content" : "From curated hospitality services to exquisitely designed rooms, White Moon Hotel offers an unparalleled experience for discerning travelers.",
+  "home_hero_button": "Explore Rooms & Suites"
 }

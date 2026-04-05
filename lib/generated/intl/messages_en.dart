@@ -46,6 +46,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "footer_quick_links_column": MessageLookupByLibrary.simpleMessage(
       "Quick Links",
     ),
+    "home_hero_button": MessageLookupByLibrary.simpleMessage(
+      "Explore Rooms & Suites",
+    ),
+    "home_hero_content": MessageLookupByLibrary.simpleMessage(
+      "From curated hospitality services to exquisitely designed rooms, White Moon Hotel offers an unparalleled experience for discerning travelers.",
+    ),
+    "home_hero_title": MessageLookupByLibrary.simpleMessage(
+      "Unveiling a New Standard of Luxury in KSA",
+    ),
     "home_tab": MessageLookupByLibrary.simpleMessage("Home"),
     "hotel_name": MessageLookupByLibrary.simpleMessage("White Moon Hotel"),
     "places_tab": MessageLookupByLibrary.simpleMessage("Places"),

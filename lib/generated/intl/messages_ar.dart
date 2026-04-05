@@ -46,6 +46,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "footer_quick_links_column": MessageLookupByLibrary.simpleMessage(
       "الروابط السريعة",
     ),
+    "home_hero_button": MessageLookupByLibrary.simpleMessage(
+      "استكشف الغرف والأجنحة",
+    ),
+    "home_hero_content": MessageLookupByLibrary.simpleMessage(
+      "من خدمات الضيافة المنسقة إلى الغرف المصممة ببراعة، يقدم فندق وايت مون تجربة لا مثيل لها للمسافرين ذوي الذوق الرفيع.",
+    ),
+    "home_hero_title": MessageLookupByLibrary.simpleMessage(
+      "اكتشف معياراً جديداً للفخامة في المملكة",
+    ),
     "home_tab": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "hotel_name": MessageLookupByLibrary.simpleMessage("فندق وايت مون"),
     "places_tab": MessageLookupByLibrary.simpleMessage("الضيافة"),

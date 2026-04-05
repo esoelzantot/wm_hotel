@@ -178,6 +178,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Unveiling a New Standard of Luxury in KSA`
+  String get home_hero_title {
+    return Intl.message(
+      'Unveiling a New Standard of Luxury in KSA',
+      name: 'home_hero_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `From curated hospitality services to exquisitely designed rooms, White Moon Hotel offers an unparalleled experience for discerning travelers.`
+  String get home_hero_content {
+    return Intl.message(
+      'From curated hospitality services to exquisitely designed rooms, White Moon Hotel offers an unparalleled experience for discerning travelers.',
+      name: 'home_hero_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Explore Rooms & Suites`
+  String get home_hero_button {
+    return Intl.message(
+      'Explore Rooms & Suites',
+      name: 'home_hero_button',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

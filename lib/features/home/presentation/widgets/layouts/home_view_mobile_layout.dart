@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/widgets/footer/custom_vertical_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_drawer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_mobile_header.dart';
+import 'package:wm_hotel/features/home/presentation/widgets/layouts/custom_hero_section.dart';
 
 class HomeViewMobileLayout extends StatefulWidget {
   const HomeViewMobileLayout({super.key});
@@ -22,7 +23,18 @@ class _HomeViewMobileLayoutState extends State<HomeViewMobileLayout> {
       children: [
         // ── Main Content ──────────────────────────────────────
         CustomScrollView(
-          slivers: [SliverToBoxAdapter(child: CustomVerticalFooter())],
+          slivers: [
+            SliverToBoxAdapter(child: SizedBox(height: 80)),
+            SliverToBoxAdapter(
+              child: // Hero Section
+              Padding(
+                padding: const EdgeInsets.all(24),
+                child: CustomHeroSection(),
+              ),
+            ),
+
+            SliverToBoxAdapter(child: CustomVerticalFooter()),
+          ],
         ),
 
         // ── Fixed Header ──────────────────────────────────────
