@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/constants/design_constants.dart';
+import 'package:wm_hotel/core/widgets/header/header_logo.dart';
 
 class CustomMobileHeader extends StatelessWidget
     implements PreferredSizeWidget {
@@ -13,7 +14,7 @@ class CustomMobileHeader extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
+      height: 90,
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         color: Color(0xffc2c2c2).withAlpha(25),
@@ -46,32 +47,7 @@ class CustomMobileHeader extends StatelessWidget
             const Spacer(),
 
             /// ── Logo Icon ──
-            Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: const Color(0xFFE84E1B),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: const Icon(
-                Icons.biotech_rounded,
-                color: Colors.white,
-                size: 22,
-              ),
-            ),
-
-            const SizedBox(width: 10),
-
-            /// ── Brand Name ──
-            const Text(
-              'ZYNTRA',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w900,
-                letterSpacing: 2,
-              ),
-            ),
+            HeaderLogo(),
           ],
         ),
       ),

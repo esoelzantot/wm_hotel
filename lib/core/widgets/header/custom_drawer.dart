@@ -3,8 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:wm_hotel/core/routing/end_points.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
-import 'package:wm_hotel/core/widgets/buttons/custom_elevated_button.dart';
+import 'package:wm_hotel/core/widgets/header/contact_now_button.dart';
 import 'package:wm_hotel/core/widgets/header/language_toggle.dart';
+import 'package:wm_hotel/generated/l10n.dart';
 
 class CustomDrawer extends StatefulWidget {
   final VoidCallback? onClose;
@@ -18,21 +19,30 @@ class CustomDrawer extends StatefulWidget {
 class _CustomDrawerState extends State<CustomDrawer> {
   final Set<String> _expanded = {};
 
-  final List<_DrawerItem> _items = const [
-    _DrawerItem(label: 'الرئيسية', icon: Icons.home_rounded, hasArrow: false),
+  // ✅ getter بيتقرأ كل build — فبيتحدث مع اللغة
+  List<_DrawerItem> get _items => [
     _DrawerItem(
-      label: 'الضيافة',
+      label: S.of(context).home_tab,
+      icon: Icons.home_rounded,
+      hasArrow: false,
+    ),
+    _DrawerItem(
+      label: S.of(context).places_tab,
       icon: Icons.restaurant_menu_rounded,
       hasArrow: false,
     ),
-    _DrawerItem(label: 'الغرف', icon: Icons.bed_rounded, hasArrow: false),
     _DrawerItem(
-      label: 'خدماتنا',
+      label: S.of(context).rooms_tab,
+      icon: Icons.bed_rounded,
+      hasArrow: false,
+    ),
+    _DrawerItem(
+      label: S.of(context).services_tab,
       icon: Icons.room_service_rounded,
       hasArrow: false,
     ),
     _DrawerItem(
-      label: 'من نحن',
+      label: S.of(context).about_us_tab,
       icon: Icons.info_outline_rounded,
       hasArrow: false,
     ),
@@ -40,6 +50,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
   @override
   Widget build(BuildContext context) {
+    final items = _items; // ✅ نقرأه مرة واحدة في الـ build
+
     return Container(
       width: 290,
       height: double.infinity,
@@ -59,7 +71,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
             child: Row(
               children: [
-                /// Logo + Brand
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -80,10 +91,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     ),
                   ],
                 ),
-
                 const Spacer(),
-
-                /// Close Button
                 GestureDetector(
                   onTap: widget.onClose,
                   child: Container(
@@ -110,9 +118,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              itemCount: _items.length,
+              itemCount: items.length,
               itemBuilder: (context, index) {
-                final item = _items[index];
+                final item = items[index];
                 final isExpanded = _expanded.contains(item.label);
 
                 return Padding(
@@ -137,13 +145,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         color: Colors.transparent,
                         borderRadius: BorderRadius.circular(14),
                         border: Border.all(
-                          color: Color(0xFF007BFF).withAlpha(25),
+                          color: const Color(0xFF007BFF).withAlpha(25),
                           width: 1.0,
                         ),
                       ),
                       child: Row(
                         children: [
-                          /// Icon Box
                           Container(
                             width: 38,
                             height: 38,
@@ -159,15 +166,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
                               size: 20,
                             ),
                           ),
-
                           const SizedBox(width: 14),
-
-                          /// Label
                           Text(
                             item.label,
                             style: AppStyles.styleSemiBold20(context),
                           ),
-
                           const Spacer(),
                         ],
                       ),
@@ -181,14 +184,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomElevatedButton(
-                onPress: () {},
-                title: "تواصل الأن",
-                backgroundColor: AppColors.primaryColor,
-                textColor: Colors.white,
-              ),
+              ContactNowButton(),
               const SizedBox(width: 10),
-
               LanguageToggle(),
             ],
           ),
@@ -198,29 +195,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
-  // ── Navigation Handle ───────────────────────────────────────────────────────────────
   void _handleNavigation(int index) {
     switch (index) {
       case 0:
         GoRouter.of(context).push(EndPoints.homeView);
         break;
-      // case 1:
-      //   GoRouter.of(context).push(EndPoints.askyView);
-      //   break;
-      // case 2:
-      //   GoRouter.of(context).push(EndPoints.articlesView);
-      //   break;
-      // case 3:
-      //   GoRouter.of(context).push(EndPoints.libraryView);
-      //   break;
       default:
     }
   }
 }
-
-/// ─────────────────────────────────────────
-///  Drawer Item Model
-/// ─────────────────────────────────────────
 
 class _DrawerItem {
   final String label;

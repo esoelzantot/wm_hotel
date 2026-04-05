@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
+import 'package:wm_hotel/generated/l10n.dart';
 
 class ContactNowButton extends StatefulWidget {
   const ContactNowButton({super.key});
@@ -52,7 +53,7 @@ class ContactNowButtonState extends State<ContactNowButton> {
             duration: const Duration(milliseconds: 200),
             offset: _hovered ? const Offset(0, -0.05) : Offset.zero,
             child: Text(
-              'تواصل الآن',
+              S.of(context).contact_now_btn,
               style: AppStyles.styleSemiBold20(
                 context,
               ).copyWith(color: Colors.white),

@@ -1,0 +1,9 @@
+{
+  "@@locale": "en",
+  "home_tab": "Home",
+  "places_tab": "Places",
+  "rooms_tab": "Rooms",
+  "services_tab": "Services",
+  "about_us_tab": "About Us",
+  "contact_now_btn": "Contact Now"
+}
