@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wm_hotel/core/widgets/footer/custom_vertical_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_drawer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_mobile_header.dart';
 
@@ -20,7 +21,9 @@ class _HomeViewMobileLayoutState extends State<HomeViewMobileLayout> {
     return Stack(
       children: [
         // ── Main Content ──────────────────────────────────────
-        CustomScrollView(slivers: []),
+        CustomScrollView(
+          slivers: [SliverToBoxAdapter(child: CustomVerticalFooter())],
+        ),
 
         // ── Fixed Header ──────────────────────────────────────
         Positioned(

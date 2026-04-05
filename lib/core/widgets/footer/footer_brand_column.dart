@@ -20,16 +20,19 @@ class FooterBrandColumn extends StatelessWidget {
         ),
 
         const SizedBox(height: 3),
-        Row(
-          children: [
-            const SizedBox(width: 20),
-            Text(
-              S.of(context).footer_hotel_brief_title,
-              style: AppStyles.styleSemiBold24(
-                context,
-              ).copyWith(color: AppColors.subTextColor),
-            ),
-          ],
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Row(
+            children: [
+              const SizedBox(width: 20),
+              Text(
+                S.of(context).footer_hotel_brief_title,
+                style: AppStyles.styleSemiBold24(
+                  context,
+                ).copyWith(color: AppColors.subTextColor),
+              ),
+            ],
+          ),
         ),
 
         const SizedBox(height: 12),
