@@ -208,6 +208,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Our Exclusive Hospitality Venues`
+  String get home_places_section_title {
+    return Intl.message(
+      'Our Exclusive Hospitality Venues',
+      name: 'home_places_section_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show All Venues`
+  String get show_all_venues_button {
+    return Intl.message(
+      'Show All Venues',
+      name: 'show_all_venues_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show Details`
+  String get details_button {
+    return Intl.message(
+      'Show Details',
+      name: 'details_button',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

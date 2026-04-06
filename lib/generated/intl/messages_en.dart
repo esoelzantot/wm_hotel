@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about_us_tab": MessageLookupByLibrary.simpleMessage("About Us"),
     "contact_now_btn": MessageLookupByLibrary.simpleMessage("Contact Now"),
+    "details_button": MessageLookupByLibrary.simpleMessage("Show Details"),
     "footer_company_name": MessageLookupByLibrary.simpleMessage("AXURAA"),
     "footer_contact_us_column": MessageLookupByLibrary.simpleMessage(
       "Contact Us",
@@ -55,10 +56,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "home_hero_title": MessageLookupByLibrary.simpleMessage(
       "Unveiling a New Standard of Luxury in KSA",
     ),
+    "home_places_section_title": MessageLookupByLibrary.simpleMessage(
+      "Our Exclusive Hospitality Venues",
+    ),
     "home_tab": MessageLookupByLibrary.simpleMessage("Home"),
     "hotel_name": MessageLookupByLibrary.simpleMessage("White Moon Hotel"),
     "places_tab": MessageLookupByLibrary.simpleMessage("Places"),
     "rooms_tab": MessageLookupByLibrary.simpleMessage("Rooms"),
     "services_tab": MessageLookupByLibrary.simpleMessage("Services"),
+    "show_all_venues_button": MessageLookupByLibrary.simpleMessage(
+      "Show All Venues",
+    ),
   };
 }

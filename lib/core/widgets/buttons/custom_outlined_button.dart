@@ -32,10 +32,9 @@ class CustomOutlinedButton extends StatelessWidget {
             DesignConstants.defaultBorderRadius,
           ),
         ),
-        side: BorderSide(color: borderColor ?? Colors.white, width: 1.0),
+        side: BorderSide(color: borderColor ?? Colors.white, width: 0.75),
         elevation: enabled ? DesignConstants.defaultElevation : 0,
         backgroundColor: Colors.transparent,
-        foregroundColor: textColor ?? Colors.white,
         disabledBackgroundColor: Colors.transparent,
       ),
       onPressed: enabled ? onPress : null,
@@ -43,7 +42,7 @@ class CustomOutlinedButton extends StatelessWidget {
         fit: BoxFit.scaleDown,
         child: Text(
           title,
-          style: AppStyles.styleBold16(context).copyWith(color: Colors.white),
+          style: AppStyles.styleSemiBold20(context).copyWith(color: textColor),
         ),
       ),
     );

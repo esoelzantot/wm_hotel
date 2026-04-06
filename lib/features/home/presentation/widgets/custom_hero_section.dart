@@ -64,38 +64,18 @@ class _CustomHeroSectionState extends State<CustomHeroSection> {
                 ),
               ),
 
-              const SizedBox(height: 24),
+              const SizedBox(height: 32),
 
               // Button
-              _ExploreButton(),
+              CustomAnimatedButton(
+                onTap: () {},
+                title: S.of(context).home_hero_button,
+                fontSize: 24,
+                textColor: const Color(0xFFFF6B00),
+                backgroundColor: Colors.white.withValues(alpha: 0.9),
+              ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ExploreButton extends StatefulWidget {
-  const _ExploreButton();
-
-  @override
-  State<_ExploreButton> createState() => _ExploreButtonState();
-}
-
-class _ExploreButtonState extends State<_ExploreButton> {
-  bool _hovered = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
-      child: GestureDetector(
-        onTap: () {},
-        child: CustomAnimatedButton(
-          onTap: () {},
-          title: S.of(context).home_hero_button,
         ),
       ),
     );

@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
 
 class CustomAnimatedButton extends StatefulWidget {
   final VoidCallback? onTap;
 
   final String title;
+  final Color? textColor;
+
+  final Color backgroundColor;
+
+  final int fontSize;
 
   const CustomAnimatedButton({
     super.key,
     required this.onTap,
     required this.title,
+    required this.backgroundColor,
+    this.textColor,
+    this.fontSize = 18,
   });
 
   @override
@@ -31,62 +38,45 @@ class _CustomAnimatedButtonState extends State<CustomAnimatedButton> {
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 250),
           curve: Curves.easeOut,
-          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 11),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: _hovered
-                  ? [const Color(0xFF2E4EA1), const Color(0xFF1A2B5F)]
-                  : [const Color(0xFF1A2B5F), const Color(0xFF2E4EA1)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: _hovered
-                ? [
-                    BoxShadow(
-                      color: const Color(0xFF1A2B5F).withValues(alpha: 0.35),
-                      blurRadius: 12,
-                      offset: const Offset(0, 4),
-                    ),
-                  ]
-                : [
-                    BoxShadow(
-                      color: const Color(0xFF1A2B5F).withValues(alpha: 0.18),
-                      blurRadius: 6,
-                      offset: const Offset(0, 2),
-                    ),
-                  ],
+            color: _hovered
+                ? widget.backgroundColor.withValues(alpha: 0.08)
+                : Colors.transparent,
+            borderRadius: BorderRadius.circular(6),
           ),
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 AnimatedDefaultTextStyle(
                   duration: const Duration(milliseconds: 250),
-                  style: AppStyles.styleSemiBold24(context).copyWith(
-                    color: _hovered
-                        ? const Color(0xFFFF6B00)
-                        : AppColors.subTextColor,
+                  style: AppStyles.styleSemiBold18(context).copyWith(
+                    color: (widget.textColor == null)
+                        ? _hovered
+                              ? const Color(0xFFFF8C00)
+                              : const Color(0xFFFF6B00)
+                        : widget.textColor,
                     letterSpacing: _hovered ? 0.5 : 0,
+                    fontSize: widget.fontSize.toDouble(),
                   ),
                   child: Text(widget.title),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 2),
                 AnimatedSlide(
                   duration: const Duration(milliseconds: 250),
                   curve: Curves.easeOut,
-                  offset: _hovered ? const Offset(-0.2, 0) : Offset.zero,
+                  offset: _hovered ? const Offset(-0.1, 0) : Offset.zero,
                   child: AnimatedOpacity(
                     duration: const Duration(milliseconds: 250),
                     opacity: _hovered ? 1.0 : 0.7,
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsets.only(left: 4),
                       child: Icon(
                         Icons.arrow_forward_ios_rounded,
-                        color: _hovered
-                            ? const Color(0xFFFF6B00)
-                            : AppColors.subTextColor,
-                        size: 20,
+                        color: Color(0xFFFF6B00),
+                        size: 16,
                       ),
                     ),
                   ),

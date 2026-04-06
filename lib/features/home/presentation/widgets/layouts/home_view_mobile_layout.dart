@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/widgets/footer/custom_vertical_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_drawer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_mobile_header.dart';
-import 'package:wm_hotel/features/home/presentation/widgets/layouts/custom_hero_section.dart';
+import 'package:wm_hotel/features/home/presentation/widgets/custom_hero_section.dart';
+import 'package:wm_hotel/features/home/presentation/widgets/places_section/home_places_section.dart';
 
 class HomeViewMobileLayout extends StatefulWidget {
   const HomeViewMobileLayout({super.key});
@@ -25,11 +26,23 @@ class _HomeViewMobileLayoutState extends State<HomeViewMobileLayout> {
         CustomScrollView(
           slivers: [
             SliverToBoxAdapter(child: SizedBox(height: 80)),
+
+            // Hero Section
             SliverToBoxAdapter(
-              child: // Hero Section
-              Padding(
-                padding: const EdgeInsets.all(24),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
                 child: CustomHeroSection(),
+              ),
+            ),
+
+            // Venues Section
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
+                ),
+                child: HomePlacesSection(),
               ),
             ),
 

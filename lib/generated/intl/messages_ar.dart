@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about_us_tab": MessageLookupByLibrary.simpleMessage("من نحن"),
     "contact_now_btn": MessageLookupByLibrary.simpleMessage("تواصل الأن"),
+    "details_button": MessageLookupByLibrary.simpleMessage("عرض التفاصيل"),
     "footer_company_name": MessageLookupByLibrary.simpleMessage("أكسورا"),
     "footer_contact_us_column": MessageLookupByLibrary.simpleMessage(
       "تواصل معنا",
@@ -55,10 +56,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "home_hero_title": MessageLookupByLibrary.simpleMessage(
       "اكتشف معياراً جديداً للفخامة في المملكة",
     ),
+    "home_places_section_title": MessageLookupByLibrary.simpleMessage(
+      "وجهات الضيافة الحصرية لدينا",
+    ),
     "home_tab": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "hotel_name": MessageLookupByLibrary.simpleMessage("فندق وايت مون"),
     "places_tab": MessageLookupByLibrary.simpleMessage("الضيافة"),
     "rooms_tab": MessageLookupByLibrary.simpleMessage("الغرف"),
     "services_tab": MessageLookupByLibrary.simpleMessage("خدماتنا"),
+    "show_all_venues_button": MessageLookupByLibrary.simpleMessage(
+      "استعرض جميع الوجهات",
+    ),
   };
 }
