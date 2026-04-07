@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/layouts/adaptive_layout.dart';
-import 'package:wm_hotel/features/home/presentation/widgets/layouts/home_view_mobile_layout.dart';
-import 'package:wm_hotel/features/home/presentation/widgets/layouts/home_view_tablet_layout.dart';
-import 'package:wm_hotel/features/home/presentation/widgets/layouts/home_view_web_layout.dart';
+import 'package:wm_hotel/features/home/presentation/layouts/home_view_mobile_layout.dart';
+import 'package:wm_hotel/features/home/presentation/layouts/home_view_tablet_layout.dart';
+import 'package:wm_hotel/features/home/presentation/layouts/home_view_web_layout.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

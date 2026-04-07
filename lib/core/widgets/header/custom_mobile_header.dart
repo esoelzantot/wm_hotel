@@ -17,7 +17,7 @@ class CustomMobileHeader extends StatelessWidget
       height: 90,
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: Color(0xffc2c2c2).withAlpha(25),
+        color: Color(0xffc2c2c2).withValues(alpha: 0.25),
         borderRadius: BorderRadius.circular(
           DesignConstants.defaultBorderRadius,
         ),

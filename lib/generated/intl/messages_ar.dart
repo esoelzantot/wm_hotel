@@ -63,6 +63,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "خيارات إقامة مصممة بأناقة",
     ),
     "home_tab": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "home_trust_section_title": MessageLookupByLibrary.simpleMessage(
+      "لماذا المسافرين يثقوا فينا",
+    ),
     "hotel_name": MessageLookupByLibrary.simpleMessage("فندق وايت مون"),
     "places_tab": MessageLookupByLibrary.simpleMessage("الضيافة"),
     "rooms_tab": MessageLookupByLibrary.simpleMessage("الغرف"),

@@ -63,6 +63,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Elegantly Designed Accommodations",
     ),
     "home_tab": MessageLookupByLibrary.simpleMessage("Home"),
+    "home_trust_section_title": MessageLookupByLibrary.simpleMessage(
+      "Why Travellers Trust Us",
+    ),
     "hotel_name": MessageLookupByLibrary.simpleMessage("White Moon Hotel"),
     "places_tab": MessageLookupByLibrary.simpleMessage("Places"),
     "rooms_tab": MessageLookupByLibrary.simpleMessage("Rooms"),

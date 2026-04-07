@@ -21,12 +21,11 @@
   "home_hero_title": "اكتشف معياراً جديداً للفخامة في المملكة",
   "home_hero_content" : "من خدمات الضيافة المنسقة إلى الغرف المصممة ببراعة، يقدم فندق وايت مون تجربة لا مثيل لها للمسافرين ذوي الذوق الرفيع.",
   "home_hero_button": "استكشف الغرف والأجنحة",
-
   "home_places_section_title": "وجهات الضيافة الحصرية لدينا",
   "show_all_venues_button": "استعرض جميع الوجهات",
-
   "home_rooms_section_title": "خيارات إقامة مصممة بأناقة",
   "show_all_rooms_button": "عرض جميع الغرف",
+  "home_trust_section_title": "لماذا المسافرين يثقوا فينا",
 
   "details_button": "عرض التفاصيل"
 }

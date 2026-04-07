@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:wm_hotel/core/widgets/footer/custom_horizontal_footer.dart';
+import 'package:wm_hotel/core/widgets/header/custom_web_header.dart';
+
+class VenuesViewTabletLayout extends StatelessWidget {
+  const VenuesViewTabletLayout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        // ── Scrollable Content ────────────────────────────────
+        SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 90), // Space for the fixed header
+              // Hero Section
+              // Padding(
+              //   padding: const EdgeInsets.all(24),
+              //   child: CustomHeroSection(),
+              // ),
+
+              // Footer
+              CustomHorizontalFooter(),
+            ],
+          ),
+        ),
+
+        // ── Fixed Header ──────────────────────────────────────
+        Positioned(top: 0, left: 0, right: 0, child: CustomWebHeader()),
+      ],
+    );
+  }
+}

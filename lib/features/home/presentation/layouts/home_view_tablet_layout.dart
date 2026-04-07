@@ -4,6 +4,7 @@ import 'package:wm_hotel/core/widgets/header/custom_web_header.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/custom_hero_section.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/places_section/home_places_section.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/rooms_section/home_rooms_section.dart';
+import 'package:wm_hotel/features/home/presentation/widgets/trust_Section/why_trust_section.dart';
 
 class HomeViewTabletLayout extends StatelessWidget {
   const HomeViewTabletLayout({super.key});
@@ -24,25 +25,30 @@ class HomeViewTabletLayout extends StatelessWidget {
               ),
 
               // Venues Section
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 6,
-                  ),
-                  child: HomePlacesSection(),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
                 ),
+                child: WhyTrustSection(),
+              ),
+
+              // Venues Section
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
+                ),
+                child: HomePlacesSection(),
               ),
 
               // Rooms Section
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 6,
-                  ),
-                  child: HomeRoomsSection(),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
                 ),
+                child: HomeRoomsSection(),
               ),
 
               // Footer

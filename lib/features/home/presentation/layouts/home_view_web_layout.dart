@@ -4,6 +4,7 @@ import 'package:wm_hotel/core/widgets/header/custom_web_header.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/custom_hero_section.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/places_section/home_places_section.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/rooms_section/home_rooms_section.dart';
+import 'package:wm_hotel/features/home/presentation/widgets/trust_Section/why_trust_section.dart';
 
 class HomeViewWebLayout extends StatelessWidget {
   const HomeViewWebLayout({super.key});
@@ -22,6 +23,10 @@ class HomeViewWebLayout extends StatelessWidget {
                 padding: const EdgeInsets.all(24),
                 child: CustomHeroSection(),
               ),
+
+              // Trust Section
+              SizedBox(height: 12),
+              WhyTrustSection(),
 
               // Places Section
               SizedBox(height: 12),

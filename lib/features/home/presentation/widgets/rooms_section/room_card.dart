@@ -16,7 +16,7 @@ class RoomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 500 / 450,
+      aspectRatio: 480 / 450,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.transparent,

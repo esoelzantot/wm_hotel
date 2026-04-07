@@ -249,6 +249,16 @@ class S {
     );
   }
 
+  /// `Why Travellers Trust Us`
+  String get home_trust_section_title {
+    return Intl.message(
+      'Why Travellers Trust Us',
+      name: 'home_trust_section_title',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Show Details`
   String get details_button {
     return Intl.message(
