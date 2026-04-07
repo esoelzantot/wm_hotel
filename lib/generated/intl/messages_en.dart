@@ -59,13 +59,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "home_places_section_title": MessageLookupByLibrary.simpleMessage(
       "Our Exclusive Hospitality Venues",
     ),
+    "home_rooms_section_title": MessageLookupByLibrary.simpleMessage(
+      "Elegantly Designed Accommodations",
+    ),
     "home_tab": MessageLookupByLibrary.simpleMessage("Home"),
     "hotel_name": MessageLookupByLibrary.simpleMessage("White Moon Hotel"),
     "places_tab": MessageLookupByLibrary.simpleMessage("Places"),
     "rooms_tab": MessageLookupByLibrary.simpleMessage("Rooms"),
     "services_tab": MessageLookupByLibrary.simpleMessage("Services"),
+    "show_all_rooms_button": MessageLookupByLibrary.simpleMessage(
+      "View All Rooms",
+    ),
     "show_all_venues_button": MessageLookupByLibrary.simpleMessage(
-      "Show All Venues",
+      "View All Venues",
     ),
   };
 }

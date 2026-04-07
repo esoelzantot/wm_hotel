@@ -219,11 +219,31 @@ class S {
     );
   }
 
-  /// `Show All Venues`
+  /// `View All Venues`
   String get show_all_venues_button {
     return Intl.message(
-      'Show All Venues',
+      'View All Venues',
       name: 'show_all_venues_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Elegantly Designed Accommodations`
+  String get home_rooms_section_title {
+    return Intl.message(
+      'Elegantly Designed Accommodations',
+      name: 'home_rooms_section_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View All Rooms`
+  String get show_all_rooms_button {
+    return Intl.message(
+      'View All Rooms',
+      name: 'show_all_rooms_button',
       desc: '',
       args: [],
     );

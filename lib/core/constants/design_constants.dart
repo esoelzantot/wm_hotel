@@ -1,6 +1,6 @@
 class DesignConstants {
   // PADDING
-  static const double defaultButton_VP = 18.0;
+  static const double defaultButton_VP = 15.0;
   static const double defaultButton_HP = 20.0;
 
   static const double defaultWeb_HP = 80.0;

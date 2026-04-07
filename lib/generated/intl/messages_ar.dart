@@ -59,11 +59,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "home_places_section_title": MessageLookupByLibrary.simpleMessage(
       "وجهات الضيافة الحصرية لدينا",
     ),
+    "home_rooms_section_title": MessageLookupByLibrary.simpleMessage(
+      "خيارات إقامة مصممة بأناقة",
+    ),
     "home_tab": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "hotel_name": MessageLookupByLibrary.simpleMessage("فندق وايت مون"),
     "places_tab": MessageLookupByLibrary.simpleMessage("الضيافة"),
     "rooms_tab": MessageLookupByLibrary.simpleMessage("الغرف"),
     "services_tab": MessageLookupByLibrary.simpleMessage("خدماتنا"),
+    "show_all_rooms_button": MessageLookupByLibrary.simpleMessage(
+      "عرض جميع الغرف",
+    ),
     "show_all_venues_button": MessageLookupByLibrary.simpleMessage(
       "استعرض جميع الوجهات",
     ),

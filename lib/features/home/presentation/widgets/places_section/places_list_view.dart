@@ -85,7 +85,10 @@ class _PlacesListViewState extends State<PlacesListView> {
               return _AnimatedCardEntry(
                 index: index,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8.0,
+                    vertical: 10,
+                  ),
                   child: PlaceCard(place: place),
                 ),
               );

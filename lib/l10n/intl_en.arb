@@ -22,7 +22,10 @@
   "home_hero_button": "Explore Rooms & Suites",
 
   "home_places_section_title": "Our Exclusive Hospitality Venues",
-  "show_all_venues_button": "Show All Venues",
+  "show_all_venues_button": "View All Venues",
+
+  "home_rooms_section_title": "Elegantly Designed Accommodations",
+  "show_all_rooms_button": "View All Rooms",
 
   "details_button": "Show Details"
 }

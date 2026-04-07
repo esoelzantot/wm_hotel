@@ -3,6 +3,7 @@ import 'package:wm_hotel/core/widgets/footer/custom_horizontal_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_web_header.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/custom_hero_section.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/places_section/home_places_section.dart';
+import 'package:wm_hotel/features/home/presentation/widgets/rooms_section/home_rooms_section.dart';
 
 class HomeViewTabletLayout extends StatelessWidget {
   const HomeViewTabletLayout({super.key});
@@ -30,6 +31,17 @@ class HomeViewTabletLayout extends StatelessWidget {
                     vertical: 6,
                   ),
                   child: HomePlacesSection(),
+                ),
+              ),
+
+              // Rooms Section
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
+                  child: HomeRoomsSection(),
                 ),
               ),
 

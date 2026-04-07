@@ -4,6 +4,7 @@ import 'package:wm_hotel/core/widgets/header/custom_drawer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_mobile_header.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/custom_hero_section.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/places_section/home_places_section.dart';
+import 'package:wm_hotel/features/home/presentation/widgets/rooms_section/home_rooms_section.dart';
 
 class HomeViewMobileLayout extends StatefulWidget {
   const HomeViewMobileLayout({super.key});
@@ -43,6 +44,17 @@ class _HomeViewMobileLayoutState extends State<HomeViewMobileLayout> {
                   vertical: 6,
                 ),
                 child: HomePlacesSection(),
+              ),
+            ),
+
+            // Rooms Section
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
+                ),
+                child: HomeRoomsSection(),
               ),
             ),
 

@@ -3,6 +3,7 @@ import 'package:wm_hotel/core/widgets/footer/custom_horizontal_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_web_header.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/custom_hero_section.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/places_section/home_places_section.dart';
+import 'package:wm_hotel/features/home/presentation/widgets/rooms_section/home_rooms_section.dart';
 
 class HomeViewWebLayout extends StatelessWidget {
   const HomeViewWebLayout({super.key});
@@ -22,9 +23,13 @@ class HomeViewWebLayout extends StatelessWidget {
                 child: CustomHeroSection(),
               ),
 
-              // Footer
+              // Places Section
               SizedBox(height: 12),
               HomePlacesSection(),
+
+              // Rooms Section
+              SizedBox(height: 12),
+              HomeRoomsSection(),
 
               // Footer
               SizedBox(height: 32),
