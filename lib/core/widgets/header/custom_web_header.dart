@@ -106,6 +106,9 @@ class _CustomWebHeaderState extends State<CustomWebHeader> {
       case 1:
         GoRouter.of(context).push(EndPoints.venuesView);
         break;
+      case 2:
+        GoRouter.of(context).push(EndPoints.roomsView);
+        break;
       default:
     }
   }

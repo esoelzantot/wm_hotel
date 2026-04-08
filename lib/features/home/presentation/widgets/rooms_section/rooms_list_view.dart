@@ -32,7 +32,7 @@ class _RoomsListViewState extends State<RoomsListView> {
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              child: RoomCard(room: _rooms[index], isArabic: widget.isArabic),
+              child: RoomCard(room: _rooms[index]),
             );
           },
         ),

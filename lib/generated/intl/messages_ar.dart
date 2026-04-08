@@ -68,6 +68,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "hotel_name": MessageLookupByLibrary.simpleMessage("فندق وايت مون"),
     "places_tab": MessageLookupByLibrary.simpleMessage("الضيافة"),
+    "rooms_hero_content": MessageLookupByLibrary.simpleMessage(
+      "استمتع بإقامة استثنائية في غرفنا المجهزة بأرقى المعايير. سواء كانت رحلتك للعمل أو للاستجمام، ستجد ملاذك المثالي في فندق وايت مون",
+    ),
+    "rooms_hero_title": MessageLookupByLibrary.simpleMessage(
+      "غرف وأجنحة فاخرة صُممت لراحتكم",
+    ),
     "rooms_tab": MessageLookupByLibrary.simpleMessage("الغرف"),
     "services_tab": MessageLookupByLibrary.simpleMessage("خدماتنا"),
     "show_all_rooms_button": MessageLookupByLibrary.simpleMessage(

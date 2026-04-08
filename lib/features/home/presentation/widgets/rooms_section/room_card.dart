@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wm_hotel/core/cubits/local_cubit/local_cubit.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
 import 'package:wm_hotel/core/widgets/buttons/custom_animated_button.dart';
@@ -9,9 +11,8 @@ import 'package:wm_hotel/generated/l10n.dart';
 
 class RoomCard extends StatelessWidget {
   final RoomEntity room;
-  final bool isArabic;
 
-  const RoomCard({super.key, required this.room, required this.isArabic});
+  const RoomCard({super.key, required this.room});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,6 @@ class RoomCard extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(20)),
         child: Stack(
           children: [
-            // Image
             Positioned.fill(
               child: Image.network(
                 room.imageUrl,
@@ -72,8 +72,6 @@ class RoomCard extends StatelessWidget {
                 ),
               ),
             ),
-
-            // Gradient overlay
             Positioned.fill(
               child: DecoratedBox(
                 decoration: BoxDecoration(
@@ -89,8 +87,6 @@ class RoomCard extends StatelessWidget {
                 ),
               ),
             ),
-
-            // Favorite button
             Positioned(
               top: 12,
               right: 12,
@@ -103,12 +99,17 @@ class RoomCard extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context) {
+    // ✅ قراءة الـ locale من LocalCubit
+    final state = context.watch<LocalCubit>().state;
+    final bool isArabic = state is ChangeLocalState
+        ? state.locale.languageCode == 'ar'
+        : false;
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Name + Price Row
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,11 +123,11 @@ class RoomCard extends StatelessWidget {
                       isArabic ? room.name.arName : room.name.enName,
                       style: AppStyles.styleBold24(
                         context,
-                      ).copyWith(color: Color(0xFF1A1A2E)),
+                      ).copyWith(color: const Color(0xFF1A1A2E)),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    SizedBox(height: 6),
+                    const SizedBox(height: 6),
                     Text(
                       isArabic ? room.brief.arBrief : room.brief.enBrief,
                       style: AppStyles.styleMedium20(
@@ -138,17 +139,19 @@ class RoomCard extends StatelessWidget {
                   ],
                 ),
               ),
-
-              // Price (left in RTL)
+              const SizedBox(width: 10),
               Flexible(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(
-                      isArabic ? '${room.price} ر.س ' : '${room.price} SAR ',
-                      style: AppStyles.styleBold28(context).copyWith(
-                        color: Color(0xFF1565C0),
-                        fontWeight: FontWeight.w800,
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        isArabic ? '${room.price} ر.س ' : '${room.price} SAR ',
+                        style: AppStyles.styleBold28(context).copyWith(
+                          color: const Color(0xFF1565C0),
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
                     ),
                     Text(
@@ -162,14 +165,9 @@ class RoomCard extends StatelessWidget {
               ),
             ],
           ),
-
           const SizedBox(height: 14),
-
-          CustomDivider(),
-
+          const CustomDivider(),
           const SizedBox(height: 14),
-
-          // Details Button (center)
           Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,

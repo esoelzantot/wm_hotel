@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:wm_hotel/core/helpers/app_transitions.dart';
 import 'package:wm_hotel/core/routing/end_points.dart';
 import 'package:wm_hotel/features/home/presentation/views/home_view.dart';
+import 'package:wm_hotel/features/rooms/presentation/views/rooms_view.dart';
 import 'package:wm_hotel/features/venues/presentation/views/venues_view.dart';
 
 class AppRouter {
@@ -37,6 +38,16 @@ class AppRouter {
         name: 'Venues View',
         pageBuilder: (context, state) =>
             AppTransitions.smoothFade(state.pageKey, const VenuesView()),
+      ),
+
+      // ============================================================
+      // Rooms Screen - Smooth Fade
+      // ============================================================
+      GoRoute(
+        path: EndPoints.roomsView,
+        name: 'Rooms View',
+        pageBuilder: (context, state) =>
+            AppTransitions.smoothFade(state.pageKey, const RoomsView()),
       ),
 
       // ============================================================

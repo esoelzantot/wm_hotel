@@ -2,37 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/config/size_config.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
-import 'package:wm_hotel/features/home/data/content/places_data.dart';
-import 'package:wm_hotel/features/home/data/entities/place_entity.dart';
-import 'package:wm_hotel/features/venues/presentation/widgets/venues_grid/venues_grid_view.dart';
+import 'package:wm_hotel/features/home/data/content/rooms_data.dart';
+import 'package:wm_hotel/features/home/data/entities/room_entity.dart';
+import 'package:wm_hotel/features/rooms/presentation/widgets/rooms_grid/rooms_grid_view.dart';
 import 'package:wm_hotel/generated/l10n.dart';
 
-import 'venues_pagination.dart';
+import 'rooms_pagination.dart';
 
-class VenuesGrid extends StatefulWidget {
-  const VenuesGrid({super.key});
+class RoomsGrid extends StatefulWidget {
+  const RoomsGrid({super.key});
 
   @override
-  State<VenuesGrid> createState() => _VenuesGridState();
+  State<RoomsGrid> createState() => _RoomsGridState();
 }
 
-class _VenuesGridState extends State<VenuesGrid> {
+class _RoomsGridState extends State<RoomsGrid> {
   int _currentPage = 1;
   static const int _itemsPerPage = 10;
   int crossAxisCount = 3;
   double childAspectRatio = 1.0;
 
-  List<PlaceEntity> get _places => PlacesData.featuredPlaces;
+  List<RoomEntity> get _rooms => RoomsData.featuredRooms;
 
   int get _totalPages {
-    return (_places.length / _itemsPerPage).ceil().clamp(1, 999);
+    return (_rooms.length / _itemsPerPage).ceil().clamp(1, 999);
   }
 
   // ✅ استخراج الـ items بناءً على الـ current page
-  List<PlaceEntity> get _currentPageItems {
+  List<RoomEntity> get _currentPageItems {
     final startIndex = (_currentPage - 1) * _itemsPerPage;
-    final endIndex = (startIndex + _itemsPerPage).clamp(0, _places.length);
-    return _places.sublist(startIndex, endIndex);
+    final endIndex = (startIndex + _itemsPerPage).clamp(0, _rooms.length);
+    return _rooms.sublist(startIndex, endIndex);
   }
 
   @override
@@ -51,7 +51,7 @@ class _VenuesGridState extends State<VenuesGrid> {
       });
     } else {
       setState(() {
-        crossAxisCount = 4;
+        crossAxisCount = 3;
         childAspectRatio = 0.9;
       });
     }
@@ -67,8 +67,8 @@ class _VenuesGridState extends State<VenuesGrid> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildHeader(),
-        VenuesGridView(
-          places: _currentPageItems,
+        RoomsGridView(
+          rooms: _currentPageItems,
           crossAxisCount: crossAxisCount,
           childAspectRatio: childAspectRatio,
         ),
@@ -88,7 +88,7 @@ class _VenuesGridState extends State<VenuesGrid> {
       child: FittedBox(
         fit: BoxFit.scaleDown,
         child: Text(
-          S.of(context).home_places_section_title,
+          S.of(context).home_rooms_section_title,
           style: AppStyles.styleBold32(context).copyWith(
             color: AppColors.primaryColor,
             fontWeight: FontWeight.w800,

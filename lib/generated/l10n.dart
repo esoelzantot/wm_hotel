@@ -279,6 +279,26 @@ class S {
     );
   }
 
+  /// `Luxury Rooms & Suites Designed for Your Comfort`
+  String get rooms_hero_title {
+    return Intl.message(
+      'Luxury Rooms & Suites Designed for Your Comfort',
+      name: 'rooms_hero_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Experience the ultimate retreat in our elegantly appointed rooms. Whether for business or leisure, find your perfect sanctuary at White Moon Hotel`
+  String get rooms_hero_content {
+    return Intl.message(
+      'Experience the ultimate retreat in our elegantly appointed rooms. Whether for business or leisure, find your perfect sanctuary at White Moon Hotel',
+      name: 'rooms_hero_content',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Show Details`
   String get details_button {
     return Intl.message(
