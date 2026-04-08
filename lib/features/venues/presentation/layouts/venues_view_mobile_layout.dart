@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/widgets/footer/custom_vertical_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_drawer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_mobile_header.dart';
+import 'package:wm_hotel/features/venues/presentation/widgets/venues_grid/venues_grid.dart';
+import 'package:wm_hotel/features/venues/presentation/widgets/venues_hero_section.dart';
 
 class VenuesViewMobileLayout extends StatefulWidget {
   const VenuesViewMobileLayout({super.key});
@@ -26,12 +28,21 @@ class _VenuesViewMobileLayoutState extends State<VenuesViewMobileLayout> {
             SliverToBoxAdapter(child: SizedBox(height: 80)),
 
             // Hero Section
-            // SliverToBoxAdapter(
-            //   child: Padding(
-            //     padding: const EdgeInsets.all(20),
-            //     child: CustomHeroSection(),
-            //   ),
-            // ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: VenuesHeroSection(),
+              ),
+            ),
+
+            // Venues Grid
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: VenuesGrid(),
+              ),
+            ),
+
             SliverToBoxAdapter(child: CustomVerticalFooter()),
           ],
         ),

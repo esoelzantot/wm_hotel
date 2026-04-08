@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:wm_hotel/core/routing/end_points.dart';
 import 'package:wm_hotel/core/widgets/header/contact_now_button.dart';
 import 'package:wm_hotel/core/widgets/header/header_logo.dart';
 import 'package:wm_hotel/core/widgets/header/language_toggle.dart';
@@ -6,7 +8,9 @@ import 'package:wm_hotel/core/widgets/header/nav_item.dart';
 import 'package:wm_hotel/generated/l10n.dart';
 
 class CustomWebHeader extends StatefulWidget {
-  const CustomWebHeader({super.key});
+  final int activeIndex;
+
+  const CustomWebHeader({super.key, this.activeIndex = 0});
 
   @override
   State<CustomWebHeader> createState() => _CustomWebHeaderState();
@@ -24,6 +28,14 @@ class _CustomWebHeaderState extends State<CustomWebHeader> {
     S.of(context).services_tab,
     S.of(context).about_us_tab,
   ];
+
+  @override
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _activeIndex = widget.activeIndex;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +81,7 @@ class _CustomWebHeaderState extends State<CustomWebHeader> {
                         label: _navItems[i],
                         isActive: isActive,
                         isHovered: isHovered,
+                        onTapped: () => _handleNavItemClick(i),
                       ),
                     ),
                   ),
@@ -83,5 +96,17 @@ class _CustomWebHeaderState extends State<CustomWebHeader> {
         ],
       ),
     );
+  }
+
+  void _handleNavItemClick(int index) {
+    switch (index) {
+      case 0:
+        GoRouter.of(context).go(EndPoints.homeView);
+        break;
+      case 1:
+        GoRouter.of(context).push(EndPoints.venuesView);
+        break;
+      default:
+    }
   }
 }

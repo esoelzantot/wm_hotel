@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wm_hotel/core/config/size_config.dart';
+import 'package:wm_hotel/core/routing/end_points.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
 import 'package:wm_hotel/core/widgets/buttons/custom_outlined_button.dart';
@@ -74,7 +76,8 @@ class _HomePlacesSectionState extends State<HomePlacesSection> {
                 ),
                 const SizedBox(height: 12),
                 CustomOutlinedButton(
-                  onPress: () {},
+                  onPress: () =>
+                      GoRouter.of(context).push(EndPoints.venuesView),
                   title: S.of(context).show_all_venues_button,
                   textColor: AppColors.secondaryColor,
                   borderColor: AppColors.secondaryColor,

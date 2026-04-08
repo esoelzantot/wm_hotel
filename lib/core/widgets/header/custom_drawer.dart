@@ -127,7 +127,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   padding: const EdgeInsets.only(bottom: 12),
                   child: GestureDetector(
                     onTap: () {
-                      _handleNavigation(index);
+                      _handleNavItemClick(index);
                       if (item.hasArrow) {
                         setState(() {
                           isExpanded
@@ -195,10 +195,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
-  void _handleNavigation(int index) {
+  void _handleNavItemClick(int index) {
     switch (index) {
       case 0:
-        GoRouter.of(context).push(EndPoints.homeView);
+        GoRouter.of(context).go(EndPoints.homeView);
+        break;
+      case 1:
+        GoRouter.of(context).push(EndPoints.venuesView);
         break;
       default:
     }

@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:wm_hotel/core/helpers/app_transitions.dart';
 import 'package:wm_hotel/core/routing/end_points.dart';
 import 'package:wm_hotel/features/home/presentation/views/home_view.dart';
+import 'package:wm_hotel/features/venues/presentation/views/venues_view.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -29,16 +30,14 @@ class AppRouter {
       ),
 
       // ============================================================
-      // Articles Screen - Smooth Fade
+      // Venues Screen - Smooth Fade
       // ============================================================
-      // GoRoute(
-      //   path: EndPoints.articlesView,
-      //   name: 'Articles View',
-      //   pageBuilder: (context, state) => AppTransitions.smoothFade(
-      //     state.pageKey,
-      //     const ArticlesView(),
-      //   ),
-      // ),
+      GoRoute(
+        path: EndPoints.venuesView,
+        name: 'Venues View',
+        pageBuilder: (context, state) =>
+            AppTransitions.smoothFade(state.pageKey, const VenuesView()),
+      ),
 
       // ============================================================
       // Article Details View - Fade with Scale

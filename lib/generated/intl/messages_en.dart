@@ -76,5 +76,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "show_all_venues_button": MessageLookupByLibrary.simpleMessage(
       "View All Venues",
     ),
+    "venues_hero_content": MessageLookupByLibrary.simpleMessage(
+      "Discover our versatile venues designed with a touch of modern Arabian elegance, perfect for your business meetings or social gatherings",
+    ),
+    "venues_hero_title": MessageLookupByLibrary.simpleMessage(
+      "Where Luxury Meets Hospitality",
+    ),
   };
 }

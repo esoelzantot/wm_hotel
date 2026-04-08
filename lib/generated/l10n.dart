@@ -259,6 +259,26 @@ class S {
     );
   }
 
+  /// `Where Luxury Meets Hospitality`
+  String get venues_hero_title {
+    return Intl.message(
+      'Where Luxury Meets Hospitality',
+      name: 'venues_hero_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discover our versatile venues designed with a touch of modern Arabian elegance, perfect for your business meetings or social gatherings`
+  String get venues_hero_content {
+    return Intl.message(
+      'Discover our versatile venues designed with a touch of modern Arabian elegance, perfect for your business meetings or social gatherings',
+      name: 'venues_hero_content',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Show Details`
   String get details_button {
     return Intl.message(

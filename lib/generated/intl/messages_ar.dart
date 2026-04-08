@@ -76,5 +76,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "show_all_venues_button": MessageLookupByLibrary.simpleMessage(
       "استعرض جميع الوجهات",
     ),
+    "venues_hero_content": MessageLookupByLibrary.simpleMessage(
+      "اكتشف مساحاتنا المتنوعة المصممة بلمسة من الأناقة العربية العصرية، والمثالية لاجتماعات العمل أو اللقاءات الاجتماعية الراقية",
+    ),
+    "venues_hero_title": MessageLookupByLibrary.simpleMessage(
+      "حيث تلتقي الفخامة بأصول الضيافة",
+    ),
   };
 }
