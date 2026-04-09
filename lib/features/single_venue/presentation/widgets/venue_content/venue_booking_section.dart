@@ -161,32 +161,46 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
     super.dispose();
   }
 
+  // ── helper ────────────────────────────────────
+  Locale get _currentLocale {
+    final state = context.read<LocalCubit>().state;
+    return state is ChangeLocalState ? state.locale : const Locale('ar');
+  }
+
   // ── Pick date ─────────────────────────────────
   Future<void> _pickDate() async {
     final now = DateTime.now();
+    final locale = _currentLocale;
+    final isRtl = locale.languageCode == 'ar';
+
     final picked = await showDatePicker(
       context: context,
       initialDate: _selectedDate ?? now,
       firstDate: now,
-      // لا يسمح بتواريخ ماضية
       lastDate: now.add(const Duration(days: 365)),
-      locale: const Locale('ar'),
-      builder: (ctx, child) => Theme(
-        data: Theme.of(ctx).copyWith(
-          colorScheme: const ColorScheme.light(
-            primary: Color(0xFF1A56DB),
-            onPrimary: Colors.white,
-            surface: Colors.white,
-            onSurface: Color(0xFF1A1A2E),
-          ),
-          dialogTheme: const DialogThemeData(backgroundColor: Colors.white),
-          textButtonTheme: TextButtonThemeData(
-            style: TextButton.styleFrom(
-              foregroundColor: const Color(0xFF1A56DB),
+      locale: locale, // ← ديناميكي
+      builder: (ctx, child) => Directionality(
+        textDirection:
+            isRtl // ← ديناميكي
+            ? TextDirection.rtl
+            : TextDirection.ltr,
+        child: Theme(
+          data: Theme.of(ctx).copyWith(
+            colorScheme: const ColorScheme.light(
+              primary: Color(0xFF1A56DB),
+              onPrimary: Colors.white,
+              surface: Colors.white,
+              onSurface: Color(0xFF1A1A2E),
+            ),
+            dialogTheme: const DialogThemeData(backgroundColor: Colors.white),
+            textButtonTheme: TextButtonThemeData(
+              style: TextButton.styleFrom(
+                foregroundColor: const Color(0xFF1A56DB),
+              ),
             ),
           ),
+          child: child!,
         ),
-        child: child!,
       ),
     );
 
@@ -198,11 +212,17 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
 
   // ── Pick time ─────────────────────────────────
   Future<void> _pickTime(bool isFrom) async {
-    // ✅ لازم يختار اليوم الأول
     if (_selectedDate == null) {
       _showSelectDateFirst();
       return;
     }
+
+    final isRtl =
+        (context.read<LocalCubit>().state is ChangeLocalState
+                ? (context.read<LocalCubit>().state as ChangeLocalState).locale
+                : const Locale('ar'))
+            .languageCode ==
+        'ar';
 
     final initial = isFrom
         ? (_fromTime ?? const TimeOfDay(hour: 9, minute: 0))
@@ -211,38 +231,34 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
     final picked = await showTimePicker(
       context: context,
       initialTime: initial,
-      builder: (ctx, child) => Directionality(
-        textDirection: TextDirection.rtl,
-        child: Theme(
-          data: Theme.of(ctx).copyWith(
-            timePickerTheme: TimePickerThemeData(
-              backgroundColor: Colors.white,
-              hourMinuteColor: const Color(0xFF1A56DB).withOpacity(0.08),
-              hourMinuteTextColor: const Color(0xFF1A56DB),
-              dialHandColor: const Color(0xFF1A56DB),
-              dialBackgroundColor: const Color(0xFFEEF2FF),
-              entryModeIconColor: const Color(0xFF1A56DB),
-              confirmButtonStyle: TextButton.styleFrom(
-                foregroundColor: const Color(0xFF1A56DB),
-              ),
-              cancelButtonStyle: TextButton.styleFrom(
-                foregroundColor: Colors.grey,
-              ),
+      builder: (ctx, child) => Theme(
+        data: Theme.of(ctx).copyWith(
+          timePickerTheme: TimePickerThemeData(
+            backgroundColor: Colors.white,
+            hourMinuteColor: const Color(0xFF1A56DB).withOpacity(0.08),
+            hourMinuteTextColor: const Color(0xFF1A56DB),
+            dialHandColor: const Color(0xFF1A56DB),
+            dialBackgroundColor: const Color(0xFFEEF2FF),
+            entryModeIconColor: const Color(0xFF1A56DB),
+            confirmButtonStyle: TextButton.styleFrom(
+              foregroundColor: const Color(0xFF1A56DB),
+            ),
+            cancelButtonStyle: TextButton.styleFrom(
+              foregroundColor: Colors.grey,
             ),
           ),
-          child: child!,
         ),
+        child: child!,
       ),
     );
 
     if (picked != null && mounted) {
       HapticFeedback.lightImpact();
       setState(() {
-        if (isFrom) {
+        if (isFrom)
           _fromTime = picked;
-        } else {
+        else
           _toTime = picked;
-        }
       });
     }
   }

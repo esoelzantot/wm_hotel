@@ -24,7 +24,7 @@ class VenueViewWebLayout extends StatelessWidget {
                 child: VenueHeroSection(),
               ),
 
-              // Hero Section
+              // Content Section
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 24,
