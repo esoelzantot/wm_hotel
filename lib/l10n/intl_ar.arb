@@ -21,10 +21,10 @@
   "home_hero_title": "اكتشف معياراً جديداً للفخامة في المملكة",
   "home_hero_content" : "من خدمات الضيافة المنسقة إلى الغرف المصممة ببراعة، يقدم فندق وايت مون تجربة لا مثيل لها للمسافرين ذوي الذوق الرفيع.",
   "home_hero_button": "استكشف الغرف والأجنحة",
-  "home_places_section_title": "وجهات الضيافة الحصرية لدينا",
+  "home_venues_section_title": "وجهات الضيافة الحصرية لدينا",
   "show_all_venues_button": "استعرض جميع الوجهات",
   "home_rooms_section_title": "خيارات إقامة مصممة بأناقة",
-  "show_all_rooms_button": "عرض جميع الغرف",
+  "show_all_rooms_button": "استعرض جميع الغرف",
   "home_trust_section_title": "لماذا المسافرين يثقوا فينا",
 
   "venues_hero_title": "حيث تلتقي الفخامة بأصول الضيافة",
@@ -34,5 +34,37 @@
   "rooms_hero_title": "غرف وأجنحة فاخرة صُممت لراحتكم",
   "rooms_hero_content" : "استمتع بإقامة استثنائية في غرفنا المجهزة بأرقى المعايير. سواء كانت رحلتك للعمل أو للاستجمام، ستجد ملاذك المثالي في فندق وايت مون",
 
-  "details_button": "عرض التفاصيل"
+  "venue_info_title": "تفاصيل عن المكان",
+
+  "book_button" : "أحجز الأن",
+  "day_label": "اليوم",
+  "hour_label": "ساعة",
+  "day_select_label": "اختار يوم الحجز",
+  "from_label": "من",
+  "to_label": "إلى",
+  "guests_label": "عدد الضيوف",
+  "price_label": "يبدأ من",
+  "price_quote": "ساعة / ضيف",
+  "breakdown_place_holder": "اختر اليوم والوقت لعرض السعر",
+  "breakdown_guest_info": "لن يتم خصم أي مبالغ الآن، الدفع عند الوصول فقط إذا كان متاحاً",
+
+  "people_label": "أشخاص",
+  "person_label": "شخص",
+
+  "fee_label": "رسوم الخدمة",
+  "total_label": "الإجمالي",
+  "period_label": "المدة",
+
+  "room_price_quote": "ليلة / ضيف",
+  "check_in_label" : "تاريخ الوصول",
+  "check_out_label" : "تاريخ المغادرة",
+  "select_date_label" : "اختار اليوم",
+  "rooms_label" : "غرف",
+  "room_label" : "غرفة",
+  "night_label" : "ليلة",
+  "nights_label" : "ليالي",
+  "rooms_count_label" : "عدد الغرف",
+
+  "details_button": "عرض التفاصيل",
+  "currency_symbol": "ر.س"
 }

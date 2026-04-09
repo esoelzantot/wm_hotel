@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/widgets/footer/custom_horizontal_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_web_header.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/custom_hero_section.dart';
-import 'package:wm_hotel/features/home/presentation/widgets/places_section/home_places_section.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/rooms_section/home_rooms_section.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/trust_Section/why_trust_section.dart';
+import 'package:wm_hotel/features/home/presentation/widgets/venues_section/home_venues_section.dart';
 
 class HomeViewWebLayout extends StatelessWidget {
   const HomeViewWebLayout({super.key});
@@ -30,7 +30,7 @@ class HomeViewWebLayout extends StatelessWidget {
 
               // Places Section
               SizedBox(height: 12),
-              HomePlacesSection(),
+              HomeVenuesSection(),
 
               // Rooms Section
               SizedBox(height: 12),

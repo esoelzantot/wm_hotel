@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wm_hotel/features/home/data/entities/place_entity.dart';
-import 'package:wm_hotel/features/home/presentation/widgets/places_section/place_card.dart';
+import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
+import 'package:wm_hotel/features/home/presentation/widgets/venues_section/venue_card.dart';
 
 class VenuesGridView extends StatelessWidget {
   const VenuesGridView({
@@ -10,7 +10,7 @@ class VenuesGridView extends StatelessWidget {
     required this.childAspectRatio,
   });
 
-  final List<PlaceEntity> places;
+  final List<VenueEntity> places;
   final int crossAxisCount;
   final double childAspectRatio;
 
@@ -28,7 +28,7 @@ class VenuesGridView extends StatelessWidget {
       ),
       itemCount: places.length,
       itemBuilder: (_, i) {
-        return PlaceCard(place: places[i]);
+        return VenueCard(venue: places[i]);
       },
     );
   }

@@ -3,7 +3,7 @@ import 'package:wm_hotel/core/config/size_config.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
 import 'package:wm_hotel/features/home/data/content/places_data.dart';
-import 'package:wm_hotel/features/home/data/entities/place_entity.dart';
+import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
 import 'package:wm_hotel/features/venues/presentation/widgets/venues_grid/venues_grid_view.dart';
 import 'package:wm_hotel/generated/l10n.dart';
 
@@ -22,14 +22,14 @@ class _VenuesGridState extends State<VenuesGrid> {
   int crossAxisCount = 3;
   double childAspectRatio = 1.0;
 
-  List<PlaceEntity> get _places => PlacesData.featuredPlaces;
+  List<VenueEntity> get _places => PlacesData.featuredPlaces;
 
   int get _totalPages {
     return (_places.length / _itemsPerPage).ceil().clamp(1, 999);
   }
 
   // ✅ استخراج الـ items بناءً على الـ current page
-  List<PlaceEntity> get _currentPageItems {
+  List<VenueEntity> get _currentPageItems {
     final startIndex = (_currentPage - 1) * _itemsPerPage;
     final endIndex = (startIndex + _itemsPerPage).clamp(0, _places.length);
     return _places.sublist(startIndex, endIndex);
@@ -88,7 +88,7 @@ class _VenuesGridState extends State<VenuesGrid> {
       child: FittedBox(
         fit: BoxFit.scaleDown,
         child: Text(
-          S.of(context).home_places_section_title,
+          S.of(context).home_venues_section_title,
           style: AppStyles.styleBold32(context).copyWith(
             color: AppColors.primaryColor,
             fontWeight: FontWeight.w800,

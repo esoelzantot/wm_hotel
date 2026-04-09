@@ -6,27 +6,27 @@ import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
 import 'package:wm_hotel/core/widgets/buttons/custom_outlined_button.dart';
 import 'package:wm_hotel/features/home/data/content/places_data.dart';
-import 'package:wm_hotel/features/home/data/entities/place_entity.dart';
-import 'package:wm_hotel/features/home/presentation/widgets/places_section/places_list_view.dart';
+import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
+import 'package:wm_hotel/features/home/presentation/widgets/venues_section/venues_list_view.dart';
 import 'package:wm_hotel/generated/l10n.dart';
 
-class HomePlacesSection extends StatefulWidget {
-  const HomePlacesSection({super.key});
+class HomeVenuesSection extends StatefulWidget {
+  const HomeVenuesSection({super.key});
 
   @override
-  State<HomePlacesSection> createState() => _HomePlacesSectionState();
+  State<HomeVenuesSection> createState() => _HomeVenuesSectionState();
 }
 
-class _HomePlacesSectionState extends State<HomePlacesSection> {
+class _HomeVenuesSectionState extends State<HomeVenuesSection> {
   late final ScrollController _scrollController;
-  late List<PlaceEntity> _places;
+  late List<VenueEntity> _venues;
   bool isMobile = false;
 
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    _places = List.from(PlacesData.featuredPlaces);
+    _venues = List.from(PlacesData.featuredPlaces);
   }
 
   @override
@@ -51,7 +51,7 @@ class _HomePlacesSectionState extends State<HomePlacesSection> {
         children: [
           _buildHeader(),
           const SizedBox(height: 24),
-          PlacesListView(places: _places, scrollController: _scrollController),
+          VenuesListView(venues: _venues, scrollController: _scrollController),
         ],
       ),
     );
@@ -67,7 +67,7 @@ class _HomePlacesSectionState extends State<HomePlacesSection> {
                 FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Text(
-                    S.of(context).home_places_section_title,
+                    S.of(context).home_venues_section_title,
                     style: AppStyles.styleBold32(context).copyWith(
                       color: AppColors.primaryColor,
                       fontWeight: FontWeight.w800,
@@ -89,7 +89,7 @@ class _HomePlacesSectionState extends State<HomePlacesSection> {
               children: [
                 Flexible(
                   child: Text(
-                    S.of(context).home_places_section_title,
+                    S.of(context).home_venues_section_title,
                     style: AppStyles.styleBold32(context).copyWith(
                       color: AppColors.primaryColor,
                       fontWeight: FontWeight.w800,
@@ -97,7 +97,8 @@ class _HomePlacesSectionState extends State<HomePlacesSection> {
                   ),
                 ),
                 CustomOutlinedButton(
-                  onPress: () {},
+                  onPress: () =>
+                      GoRouter.of(context).push(EndPoints.venuesView),
                   title: S.of(context).show_all_venues_button,
                   textColor: AppColors.secondaryColor,
                   borderColor: AppColors.secondaryColor,

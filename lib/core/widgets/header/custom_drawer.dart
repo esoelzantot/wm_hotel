@@ -37,11 +37,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
       hasArrow: false,
     ),
     _DrawerItem(
-      label: S.of(context).services_tab,
-      icon: Icons.room_service_rounded,
-      hasArrow: false,
-    ),
-    _DrawerItem(
       label: S.of(context).about_us_tab,
       icon: Icons.info_outline_rounded,
       hasArrow: false,

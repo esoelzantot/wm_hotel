@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wm_hotel/core/cubits/local_cubit/local_cubit.dart';
+import 'package:wm_hotel/core/routing/end_points.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
 import 'package:wm_hotel/core/widgets/buttons/custom_animated_button.dart';
-import 'package:wm_hotel/features/home/data/entities/place_entity.dart';
+import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
 import 'package:wm_hotel/generated/l10n.dart';
 
-import 'place_rating_badge.dart';
+import 'venue_rating_badge.dart';
 
-class PlaceCard extends StatefulWidget {
-  final PlaceEntity place;
+class VenueCard extends StatefulWidget {
+  final VenueEntity venue;
 
-  const PlaceCard({super.key, required this.place});
+  const VenueCard({super.key, required this.venue});
 
   @override
-  State<PlaceCard> createState() => _PlaceCardState();
+  State<VenueCard> createState() => _VenueCardState();
 }
 
-class _PlaceCardState extends State<PlaceCard>
+class _VenueCardState extends State<VenueCard>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
@@ -56,35 +58,29 @@ class _PlaceCardState extends State<PlaceCard>
       child: MouseRegion(
         onEnter: (_) => _onHover(true),
         onExit: (_) => _onHover(false),
-        child: GestureDetector(
-          onTap: () {},
-          child: AnimatedBuilder(
-            animation: _controller,
-            builder: (context, child) {
-              return Transform.scale(
-                scale: _scaleAnimation.value,
-                child: child,
-              );
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.15),
-                    blurRadius: 5,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(child: _buildImageSection()),
-                  _buildInfoSection(),
-                ],
-              ),
+        child: AnimatedBuilder(
+          animation: _controller,
+          builder: (context, child) {
+            return Transform.scale(scale: _scaleAnimation.value, child: child);
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.15),
+                  blurRadius: 5,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(child: _buildImageSection()),
+                _buildInfoSection(),
+              ],
             ),
           ),
         ),
@@ -100,7 +96,7 @@ class _PlaceCardState extends State<PlaceCard>
           // Image
           Positioned.fill(
             child: Image.network(
-              widget.place.imageUrl,
+              widget.venue.imageUrl,
               fit: BoxFit.fill,
               loadingBuilder: (context, child, loadingProgress) {
                 if (loadingProgress == null) return child;
@@ -150,7 +146,7 @@ class _PlaceCardState extends State<PlaceCard>
           Positioned(
             top: 12,
             right: 12,
-            child: PlaceRatingBadge(rating: widget.place.rating),
+            child: VenueRatingBadge(rating: widget.venue.rating),
           ),
         ],
       ),
@@ -174,7 +170,7 @@ class _PlaceCardState extends State<PlaceCard>
         children: [
           // Name
           Text(
-            isArabic ? widget.place.name.arName : widget.place.name.enName,
+            isArabic ? widget.venue.name.arName : widget.venue.name.enName,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: AppStyles.styleBold22(
@@ -185,7 +181,7 @@ class _PlaceCardState extends State<PlaceCard>
 
           // Brief
           Text(
-            isArabic ? widget.place.brief.arBrief : widget.place.brief.enBrief,
+            isArabic ? widget.venue.brief.arBrief : widget.venue.brief.enBrief,
             style: AppStyles.styleSemiBold18(
               context,
             ).copyWith(color: Colors.grey.shade600),
@@ -194,7 +190,7 @@ class _PlaceCardState extends State<PlaceCard>
 
           // Action Button
           CustomAnimatedButton(
-            onTap: () {},
+            onTap: () => GoRouter.of(context).push(EndPoints.singleVenueView),
             title: S.of(context).details_button,
             backgroundColor: const Color(0xFFFF6B00),
           ),

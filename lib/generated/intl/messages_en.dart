@@ -23,8 +23,23 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about_us_tab": MessageLookupByLibrary.simpleMessage("About Us"),
+    "book_button": MessageLookupByLibrary.simpleMessage("Book Now"),
+    "breakdown_guest_info": MessageLookupByLibrary.simpleMessage(
+      "No payment is required now. Pay only upon arrival, subject to availability",
+    ),
+    "breakdown_place_holder": MessageLookupByLibrary.simpleMessage(
+      "Select a date and time to view the price",
+    ),
+    "check_in_label": MessageLookupByLibrary.simpleMessage("Arrival Date"),
+    "check_out_label": MessageLookupByLibrary.simpleMessage("Departure Date"),
     "contact_now_btn": MessageLookupByLibrary.simpleMessage("Contact Now"),
+    "currency_symbol": MessageLookupByLibrary.simpleMessage("SAR"),
+    "day_label": MessageLookupByLibrary.simpleMessage("Day"),
+    "day_select_label": MessageLookupByLibrary.simpleMessage(
+      "Select Booking Date",
+    ),
     "details_button": MessageLookupByLibrary.simpleMessage("Show Details"),
+    "fee_label": MessageLookupByLibrary.simpleMessage("Service Fee"),
     "footer_company_name": MessageLookupByLibrary.simpleMessage("AXURAA"),
     "footer_contact_us_column": MessageLookupByLibrary.simpleMessage(
       "Contact Us",
@@ -47,6 +62,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "footer_quick_links_column": MessageLookupByLibrary.simpleMessage(
       "Quick Links",
     ),
+    "from_label": MessageLookupByLibrary.simpleMessage("From"),
+    "guests_label": MessageLookupByLibrary.simpleMessage("Guests Number"),
     "home_hero_button": MessageLookupByLibrary.simpleMessage(
       "Explore Rooms & Suites",
     ),
@@ -56,9 +73,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "home_hero_title": MessageLookupByLibrary.simpleMessage(
       "Unveiling a New Standard of Luxury in KSA",
     ),
-    "home_places_section_title": MessageLookupByLibrary.simpleMessage(
-      "Our Exclusive Hospitality Venues",
-    ),
     "home_rooms_section_title": MessageLookupByLibrary.simpleMessage(
       "Elegantly Designed Accommodations",
     ),
@@ -66,15 +80,31 @@ class MessageLookup extends MessageLookupByLibrary {
     "home_trust_section_title": MessageLookupByLibrary.simpleMessage(
       "Why Travellers Trust Us",
     ),
+    "home_venues_section_title": MessageLookupByLibrary.simpleMessage(
+      "Our Exclusive Hospitality Venues",
+    ),
     "hotel_name": MessageLookupByLibrary.simpleMessage("White Moon Hotel"),
+    "hour_label": MessageLookupByLibrary.simpleMessage("Hour"),
+    "night_label": MessageLookupByLibrary.simpleMessage("Night"),
+    "nights_label": MessageLookupByLibrary.simpleMessage("Nights"),
+    "people_label": MessageLookupByLibrary.simpleMessage("Guests"),
+    "period_label": MessageLookupByLibrary.simpleMessage("Duration"),
+    "person_label": MessageLookupByLibrary.simpleMessage("Guest"),
     "places_tab": MessageLookupByLibrary.simpleMessage("Places"),
+    "price_label": MessageLookupByLibrary.simpleMessage("Started from"),
+    "price_quote": MessageLookupByLibrary.simpleMessage("Hour / Guest"),
+    "room_label": MessageLookupByLibrary.simpleMessage("Room"),
+    "room_price_quote": MessageLookupByLibrary.simpleMessage("Night / Guest"),
+    "rooms_count_label": MessageLookupByLibrary.simpleMessage("Rooms Count"),
     "rooms_hero_content": MessageLookupByLibrary.simpleMessage(
       "Experience the ultimate retreat in our elegantly appointed rooms. Whether for business or leisure, find your perfect sanctuary at White Moon Hotel",
     ),
     "rooms_hero_title": MessageLookupByLibrary.simpleMessage(
       "Luxury Rooms & Suites Designed for Your Comfort",
     ),
+    "rooms_label": MessageLookupByLibrary.simpleMessage("Rooms"),
     "rooms_tab": MessageLookupByLibrary.simpleMessage("Rooms"),
+    "select_date_label": MessageLookupByLibrary.simpleMessage("Select Date"),
     "services_tab": MessageLookupByLibrary.simpleMessage("Services"),
     "show_all_rooms_button": MessageLookupByLibrary.simpleMessage(
       "View All Rooms",
@@ -82,6 +112,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "show_all_venues_button": MessageLookupByLibrary.simpleMessage(
       "View All Venues",
     ),
+    "to_label": MessageLookupByLibrary.simpleMessage("To"),
+    "total_label": MessageLookupByLibrary.simpleMessage("Total"),
+    "venue_info_title": MessageLookupByLibrary.simpleMessage("About the Place"),
     "venues_hero_content": MessageLookupByLibrary.simpleMessage(
       "Discover our versatile venues designed with a touch of modern Arabian elegance, perfect for your business meetings or social gatherings",
     ),

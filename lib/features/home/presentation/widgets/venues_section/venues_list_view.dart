@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:wm_hotel/features/home/data/entities/place_entity.dart';
+import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
 
-import 'place_card.dart';
+import 'venue_card.dart';
 
-class PlacesListView extends StatefulWidget {
-  final List<PlaceEntity> places;
+class VenuesListView extends StatefulWidget {
+  final List<VenueEntity> venues;
   final ScrollController scrollController;
   final double height;
 
@@ -16,9 +16,9 @@ class PlacesListView extends StatefulWidget {
   final Duration scrollInterval;
   final double autoScrollStep;
 
-  const PlacesListView({
+  const VenuesListView({
     super.key,
-    required this.places,
+    required this.venues,
     required this.scrollController,
     this.height = 380,
     this.enableAutoScroll = true,
@@ -27,10 +27,10 @@ class PlacesListView extends StatefulWidget {
   });
 
   @override
-  State<PlacesListView> createState() => _PlacesListViewState();
+  State<VenuesListView> createState() => _VenuesListViewState();
 }
 
-class _PlacesListViewState extends State<PlacesListView> {
+class _VenuesListViewState extends State<VenuesListView> {
   Timer? _autoScrollTimer;
   bool _isHovered = false;
 
@@ -78,10 +78,10 @@ class _PlacesListViewState extends State<PlacesListView> {
             controller: widget.scrollController,
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 24),
-            itemCount: widget.places.length,
+            itemCount: widget.venues.length,
             separatorBuilder: (_, __) => SizedBox(width: 4),
             itemBuilder: (context, index) {
-              final place = widget.places[index];
+              final place = widget.venues[index];
               return _AnimatedCardEntry(
                 index: index,
                 child: Padding(
@@ -89,7 +89,7 @@ class _PlacesListViewState extends State<PlacesListView> {
                     horizontal: 8.0,
                     vertical: 10,
                   ),
-                  child: PlaceCard(place: place),
+                  child: VenueCard(venue: place),
                 ),
               );
             },

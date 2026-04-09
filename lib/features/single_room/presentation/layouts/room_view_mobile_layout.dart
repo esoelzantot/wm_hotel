@@ -2,19 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/widgets/footer/custom_vertical_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_drawer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_mobile_header.dart';
-import 'package:wm_hotel/features/home/presentation/widgets/custom_hero_section.dart';
-import 'package:wm_hotel/features/home/presentation/widgets/rooms_section/home_rooms_section.dart';
-import 'package:wm_hotel/features/home/presentation/widgets/trust_Section/why_trust_section.dart';
-import 'package:wm_hotel/features/home/presentation/widgets/venues_section/home_venues_section.dart';
+import 'package:wm_hotel/features/single_venue/presentation/widgets/hero_section/venue_hero_section.dart';
 
-class HomeViewMobileLayout extends StatefulWidget {
-  const HomeViewMobileLayout({super.key});
+class RoomViewMobileLayout extends StatefulWidget {
+  const RoomViewMobileLayout({super.key});
 
   @override
-  State<HomeViewMobileLayout> createState() => _HomeViewMobileLayoutState();
+  State<RoomViewMobileLayout> createState() => _RoomViewMobileLayoutState();
 }
 
-class _HomeViewMobileLayoutState extends State<HomeViewMobileLayout> {
+class _RoomViewMobileLayoutState extends State<RoomViewMobileLayout> {
   bool _isDrawerOpen = false;
 
   void _openDrawer() => setState(() => _isDrawerOpen = true);
@@ -33,37 +30,7 @@ class _HomeViewMobileLayoutState extends State<HomeViewMobileLayout> {
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.all(20),
-                child: CustomHeroSection(),
-              ),
-            ),
-
-            // Trust Section
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: WhyTrustSection(),
-              ),
-            ),
-
-            // Venues Section
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
-                ),
-                child: HomeVenuesSection(),
-              ),
-            ),
-
-            // Rooms Section
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
-                ),
-                child: HomeRoomsSection(),
+                child: VenueHeroSection(),
               ),
             ),
 

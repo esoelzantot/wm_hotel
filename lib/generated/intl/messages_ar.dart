@@ -23,8 +23,21 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about_us_tab": MessageLookupByLibrary.simpleMessage("من نحن"),
+    "book_button": MessageLookupByLibrary.simpleMessage("أحجز الأن"),
+    "breakdown_guest_info": MessageLookupByLibrary.simpleMessage(
+      "لن يتم خصم أي مبالغ الآن، الدفع عند الوصول فقط إذا كان متاحاً",
+    ),
+    "breakdown_place_holder": MessageLookupByLibrary.simpleMessage(
+      "اختر اليوم والوقت لعرض السعر",
+    ),
+    "check_in_label": MessageLookupByLibrary.simpleMessage("تاريخ الوصول"),
+    "check_out_label": MessageLookupByLibrary.simpleMessage("تاريخ المغادرة"),
     "contact_now_btn": MessageLookupByLibrary.simpleMessage("تواصل الأن"),
+    "currency_symbol": MessageLookupByLibrary.simpleMessage("ر.س"),
+    "day_label": MessageLookupByLibrary.simpleMessage("اليوم"),
+    "day_select_label": MessageLookupByLibrary.simpleMessage("اختار يوم الحجز"),
     "details_button": MessageLookupByLibrary.simpleMessage("عرض التفاصيل"),
+    "fee_label": MessageLookupByLibrary.simpleMessage("رسوم الخدمة"),
     "footer_company_name": MessageLookupByLibrary.simpleMessage("أكسورا"),
     "footer_contact_us_column": MessageLookupByLibrary.simpleMessage(
       "تواصل معنا",
@@ -47,6 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "footer_quick_links_column": MessageLookupByLibrary.simpleMessage(
       "الروابط السريعة",
     ),
+    "from_label": MessageLookupByLibrary.simpleMessage("من"),
+    "guests_label": MessageLookupByLibrary.simpleMessage("عدد الضيوف"),
     "home_hero_button": MessageLookupByLibrary.simpleMessage(
       "استكشف الغرف والأجنحة",
     ),
@@ -56,9 +71,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "home_hero_title": MessageLookupByLibrary.simpleMessage(
       "اكتشف معياراً جديداً للفخامة في المملكة",
     ),
-    "home_places_section_title": MessageLookupByLibrary.simpleMessage(
-      "وجهات الضيافة الحصرية لدينا",
-    ),
     "home_rooms_section_title": MessageLookupByLibrary.simpleMessage(
       "خيارات إقامة مصممة بأناقة",
     ),
@@ -66,21 +78,42 @@ class MessageLookup extends MessageLookupByLibrary {
     "home_trust_section_title": MessageLookupByLibrary.simpleMessage(
       "لماذا المسافرين يثقوا فينا",
     ),
+    "home_venues_section_title": MessageLookupByLibrary.simpleMessage(
+      "وجهات الضيافة الحصرية لدينا",
+    ),
     "hotel_name": MessageLookupByLibrary.simpleMessage("فندق وايت مون"),
+    "hour_label": MessageLookupByLibrary.simpleMessage("ساعة"),
+    "night_label": MessageLookupByLibrary.simpleMessage("ليلة"),
+    "nights_label": MessageLookupByLibrary.simpleMessage("ليالي"),
+    "people_label": MessageLookupByLibrary.simpleMessage("أشخاص"),
+    "period_label": MessageLookupByLibrary.simpleMessage("المدة"),
+    "person_label": MessageLookupByLibrary.simpleMessage("شخص"),
     "places_tab": MessageLookupByLibrary.simpleMessage("الضيافة"),
+    "price_label": MessageLookupByLibrary.simpleMessage("يبدأ من"),
+    "price_quote": MessageLookupByLibrary.simpleMessage("ساعة / ضيف"),
+    "room_label": MessageLookupByLibrary.simpleMessage("غرفة"),
+    "room_price_quote": MessageLookupByLibrary.simpleMessage("ليلة / ضيف"),
+    "rooms_count_label": MessageLookupByLibrary.simpleMessage("عدد الغرف"),
     "rooms_hero_content": MessageLookupByLibrary.simpleMessage(
       "استمتع بإقامة استثنائية في غرفنا المجهزة بأرقى المعايير. سواء كانت رحلتك للعمل أو للاستجمام، ستجد ملاذك المثالي في فندق وايت مون",
     ),
     "rooms_hero_title": MessageLookupByLibrary.simpleMessage(
       "غرف وأجنحة فاخرة صُممت لراحتكم",
     ),
+    "rooms_label": MessageLookupByLibrary.simpleMessage("غرف"),
     "rooms_tab": MessageLookupByLibrary.simpleMessage("الغرف"),
+    "select_date_label": MessageLookupByLibrary.simpleMessage("اختار اليوم"),
     "services_tab": MessageLookupByLibrary.simpleMessage("خدماتنا"),
     "show_all_rooms_button": MessageLookupByLibrary.simpleMessage(
-      "عرض جميع الغرف",
+      "استعرض جميع الغرف",
     ),
     "show_all_venues_button": MessageLookupByLibrary.simpleMessage(
       "استعرض جميع الوجهات",
+    ),
+    "to_label": MessageLookupByLibrary.simpleMessage("إلى"),
+    "total_label": MessageLookupByLibrary.simpleMessage("الإجمالي"),
+    "venue_info_title": MessageLookupByLibrary.simpleMessage(
+      "تفاصيل عن المكان",
     ),
     "venues_hero_content": MessageLookupByLibrary.simpleMessage(
       "اكتشف مساحاتنا المتنوعة المصممة بلمسة من الأناقة العربية العصرية، والمثالية لاجتماعات العمل أو اللقاءات الاجتماعية الراقية",

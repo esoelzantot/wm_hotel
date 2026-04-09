@@ -20,12 +20,10 @@ class _CustomWebHeaderState extends State<CustomWebHeader> {
   int _hoveredIndex = -1;
   int _activeIndex = 0;
 
-  // ✅ getter بيتقرأ كل مرة build بيحصل — فبيتحدث مع اللغة
   List<String> get _navItems => [
     S.of(context).home_tab,
     S.of(context).places_tab,
     S.of(context).rooms_tab,
-    S.of(context).services_tab,
     S.of(context).about_us_tab,
   ];
 

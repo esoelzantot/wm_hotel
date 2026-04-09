@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wm_hotel/core/cubits/local_cubit/local_cubit.dart';
+import 'package:wm_hotel/core/routing/end_points.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
 import 'package:wm_hotel/core/widgets/buttons/custom_animated_button.dart';
 import 'package:wm_hotel/features/home/data/entities/room_entity.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/custom_divider.dart';
-import 'package:wm_hotel/features/home/presentation/widgets/places_section/place_rating_badge.dart';
+import 'package:wm_hotel/features/home/presentation/widgets/venues_section/venue_rating_badge.dart';
 import 'package:wm_hotel/generated/l10n.dart';
 
 class RoomCard extends StatelessWidget {
@@ -90,7 +92,7 @@ class RoomCard extends StatelessWidget {
             Positioned(
               top: 12,
               right: 12,
-              child: PlaceRatingBadge(rating: room.stars.toDouble()),
+              child: VenueRatingBadge(rating: room.stars.toDouble()),
             ),
           ],
         ),
@@ -173,7 +175,8 @@ class RoomCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               CustomAnimatedButton(
-                onTap: () {},
+                onTap: () =>
+                    GoRouter.of(context).push(EndPoints.singleRoomView),
                 title: S.of(context).details_button,
                 backgroundColor: const Color(0xFFFF6B00),
               ),

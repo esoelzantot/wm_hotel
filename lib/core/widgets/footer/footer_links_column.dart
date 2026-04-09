@@ -16,7 +16,6 @@ class _FooterLinksColumnState extends State<FooterLinksColumn> {
     S.of(context).home_tab,
     S.of(context).places_tab,
     S.of(context).rooms_tab,
-    S.of(context).services_tab,
     S.of(context).about_us_tab,
   ];
 

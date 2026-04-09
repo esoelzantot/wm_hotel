@@ -20,7 +20,7 @@
   "home_hero_title": "Unveiling a New Standard of Luxury in KSA",
   "home_hero_content" : "From curated hospitality services to exquisitely designed rooms, White Moon Hotel offers an unparalleled experience for discerning travelers.",
   "home_hero_button": "Explore Rooms & Suites",
-  "home_places_section_title": "Our Exclusive Hospitality Venues",
+  "home_venues_section_title": "Our Exclusive Hospitality Venues",
   "show_all_venues_button": "View All Venues",
   "home_rooms_section_title": "Elegantly Designed Accommodations",
   "show_all_rooms_button": "View All Rooms",
@@ -32,5 +32,37 @@
   "rooms_hero_title": "Luxury Rooms & Suites Designed for Your Comfort",
   "rooms_hero_content" : "Experience the ultimate retreat in our elegantly appointed rooms. Whether for business or leisure, find your perfect sanctuary at White Moon Hotel",
 
-  "details_button": "Show Details"
+  "venue_info_title": "About the Place",
+
+  "book_button" : "Book Now",
+  "day_label": "Day",
+  "hour_label": "Hour",
+  "day_select_label": "Select Booking Date",
+  "from_label": "From",
+  "to_label": "To",
+  "guests_label": "Guests Number",
+  "price_label": "Started from",
+  "price_quote": "Hour / Guest",
+  "breakdown_place_holder": "Select a date and time to view the price",
+  "breakdown_guest_info": "No payment is required now. Pay only upon arrival, subject to availability",
+
+  "people_label": "Guests",
+  "person_label": "Guest",
+
+  "fee_label": "Service Fee",
+  "total_label": "Total",
+  "period_label": "Duration",
+
+  "room_price_quote": "Night / Guest",
+  "check_in_label" : "Arrival Date",
+  "check_out_label" : "Departure Date",
+  "select_date_label" : "Select Date",
+  "rooms_label" : "Rooms",
+  "room_label" : "Room",
+  "night_label" : "Night",
+  "nights_label" : "Nights",
+  "rooms_count_label" : "Rooms Count",
+
+  "details_button": "Show Details",
+  "currency_symbol": "SAR"
 }

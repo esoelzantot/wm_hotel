@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
 
-class PlaceRatingBadge extends StatelessWidget {
+class VenueRatingBadge extends StatelessWidget {
   final double rating;
-  const PlaceRatingBadge({super.key, required this.rating});
+  const VenueRatingBadge({super.key, required this.rating});
 
   @override
   Widget build(BuildContext context) {

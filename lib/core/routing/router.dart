@@ -4,6 +4,8 @@ import 'package:wm_hotel/core/helpers/app_transitions.dart';
 import 'package:wm_hotel/core/routing/end_points.dart';
 import 'package:wm_hotel/features/home/presentation/views/home_view.dart';
 import 'package:wm_hotel/features/rooms/presentation/views/rooms_view.dart';
+import 'package:wm_hotel/features/single_room/presentation/views/single_room_view.dart';
+import 'package:wm_hotel/features/single_venue/presentation/views/single_venue_view.dart';
 import 'package:wm_hotel/features/venues/presentation/views/venues_view.dart';
 
 class AppRouter {
@@ -51,18 +53,32 @@ class AppRouter {
       ),
 
       // ============================================================
-      // Article Details View - Fade with Scale
+      // Venue Details View - Fade with Scale
       // ============================================================
-      // GoRoute(
-      //   path: EndPoints.articleDetailsView,
-      //   name: 'ArticleDetails',
-      //   pageBuilder: (context, state) => AppTransitions.fadeForDetails(
-      //     state.pageKey,
-      //     ArticleDetailsView(
-      //       article: state.extra,
-      //     ),
-      //   ),
-      // ),
+      GoRoute(
+        path: EndPoints.singleVenueView,
+        name: 'Venue Details',
+        pageBuilder: (context, state) => AppTransitions.fadeForDetails(
+          state.pageKey,
+          SingleVenueView(
+            // venue: state.extra,
+          ),
+        ),
+      ),
+
+      // ============================================================
+      // Room Details View - Fade with Scale
+      // ============================================================
+      GoRoute(
+        path: EndPoints.singleRoomView,
+        name: 'Room Details',
+        pageBuilder: (context, state) => AppTransitions.fadeForDetails(
+          state.pageKey,
+          SingleRoomView(
+            // venue: state.extra,
+          ),
+        ),
+      ),
 
       // ============================================================
       // Asky Screen - Smooth Fade
