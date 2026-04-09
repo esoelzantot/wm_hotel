@@ -22,6 +22,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "about_us_hero_content": MessageLookupByLibrary.simpleMessage(
+      "في وايت مون، نؤمن بأن الضيافة هي فن الاهتمام بالتفاصيل. تعرف على رؤيتنا في خلق بيئة تجمع بين الهدوء، الرفاهية، والخدمة الشخصية التي تجعلك تشعر وكأنك في منزلك",
+    ),
+    "about_us_hero_title": MessageLookupByLibrary.simpleMessage(
+      "أكثر من مجرد فندق.. نحن ملاذك للراحة",
+    ),
     "about_us_tab": MessageLookupByLibrary.simpleMessage("من نحن"),
     "book_button": MessageLookupByLibrary.simpleMessage("أحجز الأن"),
     "breakdown_guest_info": MessageLookupByLibrary.simpleMessage(
@@ -83,8 +89,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "hotel_name": MessageLookupByLibrary.simpleMessage("فندق وايت مون"),
     "hour_label": MessageLookupByLibrary.simpleMessage("ساعة"),
+    "mission_title": MessageLookupByLibrary.simpleMessage("هدفنا"),
     "night_label": MessageLookupByLibrary.simpleMessage("ليلة"),
     "nights_label": MessageLookupByLibrary.simpleMessage("ليالي"),
+    "our_advantages_content": MessageLookupByLibrary.simpleMessage(
+      "نحن لا نقدم مجرد مكان للإقامة، بل نصنع تجربة فندقية استثنائية ترتكز على أدق تفاصيل راحتكم.",
+    ),
+    "our_advantages_title": MessageLookupByLibrary.simpleMessage(
+      "ما الذي يجعل \"وايت مون\" اختيارك الأول؟",
+    ),
     "people_label": MessageLookupByLibrary.simpleMessage("أشخاص"),
     "period_label": MessageLookupByLibrary.simpleMessage("المدة"),
     "person_label": MessageLookupByLibrary.simpleMessage("شخص"),
@@ -121,5 +134,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "venues_hero_title": MessageLookupByLibrary.simpleMessage(
       "حيث تلتقي الفخامة بأصول الضيافة",
     ),
+    "vision_title": MessageLookupByLibrary.simpleMessage("رؤيتنا"),
   };
 }

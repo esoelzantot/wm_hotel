@@ -63,6 +63,15 @@
   "nights_label" : "Nights",
   "rooms_count_label" : "Rooms Count",
 
+  "about_us_hero_title": "More Than a Hotel.. We Are Your Sanctuary",
+  "about_us_hero_content" : "At White Moon, we believe hospitality is the art of detail. Learn about our vision to create an environment that blends tranquility, luxury, and personalized service that makes you feel right at home",
+
+  "vision_title": "Our Vision",
+  "mission_title": "Our Mission",
+
+  "our_advantages_title": "Why Choose White Moon Hotel?",
+  "our_advantages_content": "We don’t just provide a place to stay; we craft an exceptional hospitality experience centered around every detail of your comfort",
+
   "details_button": "Show Details",
   "currency_symbol": "SAR"
 }

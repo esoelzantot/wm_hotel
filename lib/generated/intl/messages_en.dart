@@ -22,6 +22,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "about_us_hero_content": MessageLookupByLibrary.simpleMessage(
+      "At White Moon, we believe hospitality is the art of detail. Learn about our vision to create an environment that blends tranquility, luxury, and personalized service that makes you feel right at home",
+    ),
+    "about_us_hero_title": MessageLookupByLibrary.simpleMessage(
+      "More Than a Hotel.. We Are Your Sanctuary",
+    ),
     "about_us_tab": MessageLookupByLibrary.simpleMessage("About Us"),
     "book_button": MessageLookupByLibrary.simpleMessage("Book Now"),
     "breakdown_guest_info": MessageLookupByLibrary.simpleMessage(
@@ -85,8 +91,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "hotel_name": MessageLookupByLibrary.simpleMessage("White Moon Hotel"),
     "hour_label": MessageLookupByLibrary.simpleMessage("Hour"),
+    "mission_title": MessageLookupByLibrary.simpleMessage("Our Mission"),
     "night_label": MessageLookupByLibrary.simpleMessage("Night"),
     "nights_label": MessageLookupByLibrary.simpleMessage("Nights"),
+    "our_advantages_content": MessageLookupByLibrary.simpleMessage(
+      "We don’t just provide a place to stay; we craft an exceptional hospitality experience centered around every detail of your comfort",
+    ),
+    "our_advantages_title": MessageLookupByLibrary.simpleMessage(
+      "Why Choose White Moon Hotel?",
+    ),
     "people_label": MessageLookupByLibrary.simpleMessage("Guests"),
     "period_label": MessageLookupByLibrary.simpleMessage("Duration"),
     "person_label": MessageLookupByLibrary.simpleMessage("Guest"),
@@ -121,5 +134,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "venues_hero_title": MessageLookupByLibrary.simpleMessage(
       "Where Luxury Meets Hospitality",
     ),
+    "vision_title": MessageLookupByLibrary.simpleMessage("Our Vision"),
   };
 }

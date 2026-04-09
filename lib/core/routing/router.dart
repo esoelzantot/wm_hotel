@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wm_hotel/core/helpers/app_transitions.dart';
 import 'package:wm_hotel/core/routing/end_points.dart';
+import 'package:wm_hotel/features/about_us/presentation/views/about_us_view.dart';
 import 'package:wm_hotel/features/home/presentation/views/home_view.dart';
 import 'package:wm_hotel/features/rooms/presentation/views/rooms_view.dart';
 import 'package:wm_hotel/features/single_room/presentation/views/single_room_view.dart';
@@ -50,6 +51,16 @@ class AppRouter {
         name: 'Rooms View',
         pageBuilder: (context, state) =>
             AppTransitions.smoothFade(state.pageKey, const RoomsView()),
+      ),
+
+      // ============================================================
+      // About Us Screen - Smooth Fade
+      // ============================================================
+      GoRoute(
+        path: EndPoints.aboutUsView,
+        name: 'AboutUs View',
+        pageBuilder: (context, state) =>
+            AppTransitions.smoothFade(state.pageKey, const AboutUsView()),
       ),
 
       // ============================================================

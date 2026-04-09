@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:wm_hotel/core/routing/end_points.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
 import 'package:wm_hotel/core/widgets/footer/footer_col_title.dart';
@@ -51,7 +53,7 @@ class _NavLinkItemState extends State<_NavLinkItem> {
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () {},
+        onTap: () => _handleNavItemClick(widget.label),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: Row(
@@ -80,5 +82,27 @@ class _NavLinkItemState extends State<_NavLinkItem> {
         ),
       ),
     );
+  }
+
+  void _handleNavItemClick(String label) {
+    switch (label) {
+      case "Home":
+      case "الرئيسية":
+        GoRouter.of(context).go(EndPoints.homeView);
+        break;
+      case "Venues":
+      case "الضيافة":
+        GoRouter.of(context).push(EndPoints.venuesView);
+        break;
+      case "Rooms":
+      case "الغرف":
+        GoRouter.of(context).push(EndPoints.roomsView);
+        break;
+      case "About Us":
+      case "من نحن":
+        GoRouter.of(context).push(EndPoints.aboutUsView);
+        break;
+      default:
+    }
   }
 }

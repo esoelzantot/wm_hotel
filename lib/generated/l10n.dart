@@ -489,6 +489,61 @@ class S {
     );
   }
 
+  /// `More Than a Hotel.. We Are Your Sanctuary`
+  String get about_us_hero_title {
+    return Intl.message(
+      'More Than a Hotel.. We Are Your Sanctuary',
+      name: 'about_us_hero_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At White Moon, we believe hospitality is the art of detail. Learn about our vision to create an environment that blends tranquility, luxury, and personalized service that makes you feel right at home`
+  String get about_us_hero_content {
+    return Intl.message(
+      'At White Moon, we believe hospitality is the art of detail. Learn about our vision to create an environment that blends tranquility, luxury, and personalized service that makes you feel right at home',
+      name: 'about_us_hero_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Our Vision`
+  String get vision_title {
+    return Intl.message('Our Vision', name: 'vision_title', desc: '', args: []);
+  }
+
+  /// `Our Mission`
+  String get mission_title {
+    return Intl.message(
+      'Our Mission',
+      name: 'mission_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Why Choose White Moon Hotel?`
+  String get our_advantages_title {
+    return Intl.message(
+      'Why Choose White Moon Hotel?',
+      name: 'our_advantages_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We don’t just provide a place to stay; we craft an exceptional hospitality experience centered around every detail of your comfort`
+  String get our_advantages_content {
+    return Intl.message(
+      'We don’t just provide a place to stay; we craft an exceptional hospitality experience centered around every detail of your comfort',
+      name: 'our_advantages_content',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Show Details`
   String get details_button {
     return Intl.message(
