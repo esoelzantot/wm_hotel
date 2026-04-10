@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/config/size_config.dart';
 import 'package:wm_hotel/core/utils/app_assets.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
-import 'package:wm_hotel/core/widgets/buttons/custom_animated_button.dart';
 import 'package:wm_hotel/generated/l10n.dart';
 
 class CustomHeroSection extends StatefulWidget {
@@ -29,7 +28,7 @@ class _CustomHeroSectionState extends State<CustomHeroSection> {
       borderRadius: BorderRadius.circular(24),
       child: Container(
         width: width,
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 90),
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 120),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(AppAssets.heroImage),
@@ -62,17 +61,6 @@ class _CustomHeroSectionState extends State<CustomHeroSection> {
                     context,
                   ).copyWith(color: Colors.white.withValues(alpha: 0.9)),
                 ),
-              ),
-
-              const SizedBox(height: 32),
-
-              // Button
-              CustomAnimatedButton(
-                onTap: () {},
-                title: S.of(context).home_hero_button,
-                fontSize: 24,
-                textColor: const Color(0xFFFF6B00),
-                backgroundColor: Colors.white.withValues(alpha: 0.9),
               ),
             ],
           ),

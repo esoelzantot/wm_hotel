@@ -5,7 +5,7 @@ import 'package:wm_hotel/core/routing/end_points.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
 import 'package:wm_hotel/core/widgets/buttons/custom_outlined_button.dart';
-import 'package:wm_hotel/features/home/data/content/places_data.dart';
+import 'package:wm_hotel/features/home/data/content/venues_data.dart';
 import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
 import 'package:wm_hotel/features/home/presentation/widgets/venues_section/venues_list_view.dart';
 import 'package:wm_hotel/generated/l10n.dart';
@@ -26,7 +26,7 @@ class _HomeVenuesSectionState extends State<HomeVenuesSection> {
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    _venues = List.from(PlacesData.featuredPlaces);
+    _venues = List.from(PlacesData.venuesList);
   }
 
   @override

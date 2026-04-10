@@ -14,8 +14,8 @@ import 'package:wm_hotel/generated/l10n.dart';
 //  VenueBookingSection
 // ─────────────────────────────────────────────
 class VenueBookingSection extends StatefulWidget {
-  final double pricePerHour;
-  final double serviceFee;
+  final num pricePerHour;
+  final num serviceFee;
   final VoidCallback onBook;
 
   const VenueBookingSection({
@@ -68,7 +68,7 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
       ? '${h.toInt()} ${S.of(context).hour_label}'
       : '${h.toStringAsFixed(1)} ${S.of(context).hour_label}';
 
-  String _formatPrice(double v) {
+  String _formatPrice(num v) {
     final s = v.toInt().toString();
     return s.length > 3
         ? '${s.substring(0, s.length - 3)},${s.substring(s.length - 3)}'

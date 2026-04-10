@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/widgets/footer/custom_vertical_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_drawer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_mobile_header.dart';
+import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/hero_section/venue_hero_section.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/venue_booking_section.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/venue_info_section.dart';
 
 class VenueViewMobileLayout extends StatefulWidget {
-  const VenueViewMobileLayout({super.key});
+  final VenueEntity venue;
+
+  const VenueViewMobileLayout({super.key, required this.venue});
 
   @override
   State<VenueViewMobileLayout> createState() => _VenueViewMobileLayoutState();
@@ -32,7 +35,7 @@ class _VenueViewMobileLayoutState extends State<VenueViewMobileLayout> {
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.all(20),
-                child: VenueHeroSection(),
+                child: VenueHeroSection(venue: widget.venue),
               ),
             ),
 
@@ -45,20 +48,13 @@ class _VenueViewMobileLayoutState extends State<VenueViewMobileLayout> {
                 ),
                 child: Column(
                   children: [
-                    VenueInfoSection(
-                      paragraphs: [
-                        "details 1 details 1 details 1 details 1 details 1 details 1 details 1",
-                        "details 1",
-                        "details 1",
-                        "details 1",
-                      ],
-                    ),
+                    VenueInfoSection(details: widget.venue.details),
                     const SizedBox(height: 24),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24.0),
                       child: VenueBookingSection(
-                        pricePerHour: 100,
-                        serviceFee: 15,
+                        pricePerHour: widget.venue.price,
+                        serviceFee: widget.venue.serviceFee,
                         onBook: () {},
                       ),
                     ),

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/widgets/footer/custom_vertical_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_drawer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_mobile_header.dart';
+import 'package:wm_hotel/features/single_room/presentation/widgets/hero_section/room_hero_section.dart';
 import 'package:wm_hotel/features/single_room/presentation/widgets/room_content/room_booking_section.dart';
 import 'package:wm_hotel/features/single_room/presentation/widgets/room_content/room_info_section.dart';
-import 'package:wm_hotel/features/single_venue/presentation/widgets/hero_section/venue_hero_section.dart';
 
 class RoomViewMobileLayout extends StatefulWidget {
   const RoomViewMobileLayout({super.key});
@@ -32,7 +32,7 @@ class _RoomViewMobileLayoutState extends State<RoomViewMobileLayout> {
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.all(20),
-                child: VenueHeroSection(),
+                child: RoomHeroSection(),
               ),
             ),
 

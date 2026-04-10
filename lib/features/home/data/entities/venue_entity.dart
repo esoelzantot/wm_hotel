@@ -1,14 +1,21 @@
 class VenueEntity {
   final VenueName name;
   final VenueBrief brief;
-  final String imageUrl;
+  final List<String> images;
   final double rating;
+  final num price;
+  final num serviceFee;
+
+  final List<VenueDetails> details;
 
   const VenueEntity({
     required this.name,
     required this.brief,
-    required this.imageUrl,
+    required this.images,
     required this.rating,
+    required this.price,
+    required this.details,
+    required this.serviceFee,
   });
 }
 
@@ -24,4 +31,11 @@ class VenueBrief {
   final String enBrief;
 
   const VenueBrief({required this.arBrief, required this.enBrief});
+}
+
+class VenueDetails {
+  final String arDetails;
+  final String enDetails;
+
+  const VenueDetails({required this.arDetails, required this.enDetails});
 }

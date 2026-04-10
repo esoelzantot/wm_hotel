@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/config/size_config.dart';
+import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/hero_section/gallery_card.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/hero_section/hero_text_content.dart';
 
@@ -9,17 +10,9 @@ import 'package:wm_hotel/features/single_venue/presentation/widgets/hero_section
 //  VENUE HERO SECTION
 // ─────────────────────────────────────────────
 class VenueHeroSection extends StatefulWidget {
-  final List<String> imageUrls;
+  final VenueEntity venue;
 
-  const VenueHeroSection({
-    super.key,
-    this.imageUrls = const [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
-      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800',
-      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800',
-      'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800',
-    ],
-  });
+  const VenueHeroSection({super.key, required this.venue});
 
   @override
   State<VenueHeroSection> createState() => _VenueHeroSectionState();
@@ -68,7 +61,7 @@ class _VenueHeroSectionState extends State<VenueHeroSection>
       if (!mounted) return;
       if (!_pageController.hasClients) return;
 
-      final next = (_currentIndex + 1) % widget.imageUrls.length;
+      final next = (_currentIndex + 1) % widget.venue.images.length;
       _pageController.animateToPage(
         next,
         duration: const Duration(milliseconds: 600),
@@ -100,9 +93,9 @@ class _VenueHeroSectionState extends State<VenueHeroSection>
             vertical: isWide ? 48 : 24,
           ),
           child: _WideLayout(
+            venue: widget.venue,
             fadeAnim: _fadeAnim,
             slideAnim: _slideAnim,
-            imageUrls: widget.imageUrls,
             pageController: _pageController,
             currentIndex: _currentIndex,
             onPageChanged: (i) => setState(() => _currentIndex = i),
@@ -133,20 +126,21 @@ class _VenueHeroSectionState extends State<VenueHeroSection>
 class _WideLayout extends StatefulWidget {
   final Animation<double> fadeAnim;
   final Animation<Offset> slideAnim;
-  final List<String> imageUrls;
   final PageController pageController;
   final int currentIndex;
   final ValueChanged<int> onPageChanged;
   final ValueChanged<int> onDotTap;
 
+  final VenueEntity venue;
+
   const _WideLayout({
     required this.fadeAnim,
     required this.slideAnim,
-    required this.imageUrls,
     required this.pageController,
     required this.currentIndex,
     required this.onPageChanged,
     required this.onDotTap,
+    required this.venue,
   });
 
   @override
@@ -172,7 +166,7 @@ class _WideLayoutState extends State<_WideLayout> {
               FadeTransition(
                 opacity: widget.fadeAnim,
                 child: GalleryCard(
-                  imageUrls: widget.imageUrls,
+                  imageUrls: widget.venue.images,
                   currentIndex: widget.currentIndex,
                   onPageChanged: widget.onPageChanged,
                 ),
@@ -182,7 +176,7 @@ class _WideLayoutState extends State<_WideLayout> {
                 opacity: widget.fadeAnim,
                 child: SlideTransition(
                   position: widget.slideAnim,
-                  child: HeroTextContent(),
+                  child: HeroTextContent(venue: widget.venue),
                 ),
               ),
             ],
@@ -196,7 +190,7 @@ class _WideLayoutState extends State<_WideLayout> {
                   opacity: widget.fadeAnim,
                   child: SlideTransition(
                     position: widget.slideAnim,
-                    child: HeroTextContent(),
+                    child: HeroTextContent(venue: widget.venue),
                   ),
                 ),
               ),
@@ -206,7 +200,7 @@ class _WideLayoutState extends State<_WideLayout> {
                 child: FadeTransition(
                   opacity: widget.fadeAnim,
                   child: GalleryCard(
-                    imageUrls: widget.imageUrls,
+                    imageUrls: widget.venue.images,
                     currentIndex: widget.currentIndex,
                     onPageChanged: widget.onPageChanged,
                   ),

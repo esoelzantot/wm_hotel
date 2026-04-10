@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/config/size_config.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
-import 'package:wm_hotel/features/home/data/content/places_data.dart';
+import 'package:wm_hotel/features/home/data/content/venues_data.dart';
 import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
 import 'package:wm_hotel/features/venues/presentation/widgets/venues_grid/venues_grid_view.dart';
 import 'package:wm_hotel/generated/l10n.dart';
@@ -22,7 +22,7 @@ class _VenuesGridState extends State<VenuesGrid> {
   int crossAxisCount = 3;
   double childAspectRatio = 1.0;
 
-  List<VenueEntity> get _places => PlacesData.featuredPlaces;
+  List<VenueEntity> get _places => PlacesData.venuesList;
 
   int get _totalPages {
     return (_places.length / _itemsPerPage).ceil().clamp(1, 999);

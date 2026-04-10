@@ -54,7 +54,7 @@ class _VenueCardState extends State<VenueCard>
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 360 / 450,
+      aspectRatio: 390 / 450,
       child: MouseRegion(
         onEnter: (_) => _onHover(true),
         onExit: (_) => _onHover(false),
@@ -96,7 +96,7 @@ class _VenueCardState extends State<VenueCard>
           // Image
           Positioned.fill(
             child: Image.network(
-              widget.venue.imageUrl,
+              widget.venue.images.first,
               fit: BoxFit.fill,
               loadingBuilder: (context, child, loadingProgress) {
                 if (loadingProgress == null) return child;
@@ -185,12 +185,16 @@ class _VenueCardState extends State<VenueCard>
             style: AppStyles.styleSemiBold18(
               context,
             ).copyWith(color: Colors.grey.shade600),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 10),
 
           // Action Button
           CustomAnimatedButton(
-            onTap: () => GoRouter.of(context).push(EndPoints.singleVenueView),
+            onTap: () => GoRouter.of(
+              context,
+            ).push(EndPoints.singleVenueView, extra: widget.venue),
             title: S.of(context).details_button,
             backgroundColor: const Color(0xFFFF6B00),
           ),

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/widgets/footer/custom_horizontal_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_web_header.dart';
+import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/hero_section/venue_hero_section.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/venue_booking_section.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/venue_info_section.dart';
 
 class VenueViewTabletLayout extends StatelessWidget {
-  const VenueViewTabletLayout({super.key});
+  final VenueEntity venue;
+
+  const VenueViewTabletLayout({super.key, required this.venue});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class VenueViewTabletLayout extends StatelessWidget {
               // Hero Section
               Padding(
                 padding: const EdgeInsets.all(24),
-                child: VenueHeroSection(),
+                child: VenueHeroSection(venue: venue),
               ),
 
               // Content Section
@@ -31,20 +34,13 @@ class VenueViewTabletLayout extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    VenueInfoSection(
-                      paragraphs: [
-                        "details 1 details 1 details 1 details 1 details 1 details 1 details 1",
-                        "details 1",
-                        "details 1",
-                        "details 1",
-                      ],
-                    ),
+                    VenueInfoSection(details: venue.details),
                     const SizedBox(height: 24),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24.0),
                       child: VenueBookingSection(
-                        pricePerHour: 100,
-                        serviceFee: 15,
+                        pricePerHour: venue.price,
+                        serviceFee: venue.serviceFee,
                         onBook: () {},
                       ),
                     ),

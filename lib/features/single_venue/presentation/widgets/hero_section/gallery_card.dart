@@ -295,7 +295,7 @@ class _ImageTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.network(
       url,
-      fit: BoxFit.cover,
+      fit: BoxFit.fill,
       width: double.infinity,
       height: double.infinity,
       cacheWidth: 800,

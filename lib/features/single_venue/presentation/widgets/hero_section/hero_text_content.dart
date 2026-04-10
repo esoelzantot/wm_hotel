@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wm_hotel/core/cubits/local_cubit/local_cubit.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
+import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
 
 class HeroTextContent extends StatefulWidget {
+  final VenueEntity venue;
+
   static const _navy = Color(0xFF1A2B5F);
   static const _subtitleGrey = Color(0xFF8A94A6);
 
-  const HeroTextContent({super.key});
+  const HeroTextContent({super.key, required this.venue});
 
   @override
   State<HeroTextContent> createState() => _HeroTextContentState();
@@ -19,39 +24,52 @@ class _HeroTextContentState extends State<HeroTextContent> {
   ];
 
   @override
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        // ── Headline ──
-        Text(
-          'Forget Busy Work,\nStart Next Vacation',
-          style: AppStyles.styleBold36(
-            context,
-          ).copyWith(color: HeroTextContent._navy, fontSize: 40),
-        ),
-        const SizedBox(height: 18),
-        // ── Subtitle ──
-        Text(
-          'We provide what you need to enjoy your holiday\nwith family. Time to make another memorable moments.',
-          style: AppStyles.styleMedium28(
-            context,
-          ).copyWith(color: HeroTextContent._subtitleGrey),
-        ),
-        const SizedBox(height: 32),
-        // ── Stats row ──
-        Row(
-          children: _stats
-              .map(
-                (s) => Padding(
-                  padding: const EdgeInsets.only(right: 32),
-                  child: _StatWidget(item: s),
-                ),
-              )
-              .toList(),
-        ),
-      ],
+    return BlocBuilder<LocalCubit, LocalState>(
+      builder: (context, state) {
+        final bool isArabic = state is ChangeLocalState
+            ? state.locale.languageCode == 'ar'
+            : true;
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // ── Headline ──
+            Text(
+              isArabic ? widget.venue.name.arName : widget.venue.name.enName,
+              style: AppStyles.styleBold36(
+                context,
+              ).copyWith(color: HeroTextContent._navy, fontSize: 40),
+            ),
+            const SizedBox(height: 18),
+
+            // ── Subtitle ──
+            Text(
+              isArabic
+                  ? widget.venue.brief.arBrief
+                  : widget.venue.brief.enBrief,
+              style: AppStyles.styleMedium28(
+                context,
+              ).copyWith(color: HeroTextContent._subtitleGrey),
+            ),
+            const SizedBox(height: 32),
+
+            // ── Stats row ──
+            Row(
+              children: _stats
+                  .map(
+                    (s) => Padding(
+                      padding: const EdgeInsets.only(right: 32),
+                      child: _StatWidget(item: s),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ],
+        );
+      },
     );
   }
 }

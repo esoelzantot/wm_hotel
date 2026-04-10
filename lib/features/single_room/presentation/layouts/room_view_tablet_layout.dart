@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/widgets/footer/custom_horizontal_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_web_header.dart';
+import 'package:wm_hotel/features/single_room/presentation/widgets/hero_section/room_hero_section.dart';
 import 'package:wm_hotel/features/single_room/presentation/widgets/room_content/room_booking_section.dart';
 import 'package:wm_hotel/features/single_room/presentation/widgets/room_content/room_info_section.dart';
-import 'package:wm_hotel/features/single_venue/presentation/widgets/hero_section/venue_hero_section.dart';
 
 class RoomViewTabletLayout extends StatelessWidget {
   const RoomViewTabletLayout({super.key});
@@ -20,7 +20,7 @@ class RoomViewTabletLayout extends StatelessWidget {
               // Hero Section
               Padding(
                 padding: const EdgeInsets.all(24),
-                child: VenueHeroSection(),
+                child: RoomHeroSection(),
               ),
 
               // Content Section
