@@ -46,7 +46,7 @@ class RoomCard extends StatelessWidget {
           children: [
             Positioned.fill(
               child: Image.network(
-                room.imageUrl,
+                room.images.first,
                 fit: BoxFit.fill,
                 loadingBuilder: (context, child, loadingProgress) {
                   if (loadingProgress == null) return child;
@@ -92,7 +92,7 @@ class RoomCard extends StatelessWidget {
             Positioned(
               top: 12,
               right: 12,
-              child: VenueRatingBadge(rating: room.stars.toDouble()),
+              child: VenueRatingBadge(rating: room.rating.toDouble()),
             ),
           ],
         ),
@@ -141,7 +141,7 @@ class RoomCard extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 16),
               Flexible(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -175,8 +175,9 @@ class RoomCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               CustomAnimatedButton(
-                onTap: () =>
-                    GoRouter.of(context).push(EndPoints.singleRoomView),
+                onTap: () => GoRouter.of(
+                  context,
+                ).push(EndPoints.singleRoomView, extra: room),
                 title: S.of(context).details_button,
                 backgroundColor: const Color(0xFFFF6B00),
               ),

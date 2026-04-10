@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:wm_hotel/core/helpers/app_transitions.dart';
 import 'package:wm_hotel/core/routing/end_points.dart';
 import 'package:wm_hotel/features/about_us/presentation/views/about_us_view.dart';
+import 'package:wm_hotel/features/home/data/entities/room_entity.dart';
 import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
 import 'package:wm_hotel/features/home/presentation/views/home_view.dart';
 import 'package:wm_hotel/features/rooms/presentation/views/rooms_view.dart';
@@ -84,9 +85,7 @@ class AppRouter {
         name: 'Room Details',
         pageBuilder: (context, state) => AppTransitions.fadeForDetails(
           state.pageKey,
-          SingleRoomView(
-            // venue: state.extra,
-          ),
+          SingleRoomView(room: state.extra as RoomEntity),
         ),
       ),
 

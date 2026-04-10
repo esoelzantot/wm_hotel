@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/widgets/footer/custom_vertical_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_drawer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_mobile_header.dart';
+import 'package:wm_hotel/features/home/data/entities/room_entity.dart';
 import 'package:wm_hotel/features/single_room/presentation/widgets/hero_section/room_hero_section.dart';
 import 'package:wm_hotel/features/single_room/presentation/widgets/room_content/room_booking_section.dart';
 import 'package:wm_hotel/features/single_room/presentation/widgets/room_content/room_info_section.dart';
 
 class RoomViewMobileLayout extends StatefulWidget {
-  const RoomViewMobileLayout({super.key});
+  final RoomEntity room;
+
+  const RoomViewMobileLayout({super.key, required this.room});
 
   @override
   State<RoomViewMobileLayout> createState() => _RoomViewMobileLayoutState();
@@ -32,7 +35,7 @@ class _RoomViewMobileLayoutState extends State<RoomViewMobileLayout> {
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.all(20),
-                child: RoomHeroSection(),
+                child: RoomHeroSection(room: widget.room),
               ),
             ),
 
@@ -45,21 +48,14 @@ class _RoomViewMobileLayoutState extends State<RoomViewMobileLayout> {
                 ),
                 child: Column(
                   children: [
-                    RoomInfoSection(
-                      paragraphs: [
-                        "details 1 details 1 details 1 details 1 details 1 details 1 details 1",
-                        "details 1",
-                        "details 1",
-                        "details 1",
-                      ],
-                    ),
+                    RoomInfoSection(details: widget.room.details),
                     const SizedBox(height: 24),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24.0),
                       child: RoomBookingSection(
-                        pricePerNight: 100,
-                        serviceFee: 15,
-                        onBook: () {},
+                        pricePerNight: widget.room.price,
+                        serviceFee: widget.room.serviceFee,
+                        room: widget.room,
                       ),
                     ),
                   ],

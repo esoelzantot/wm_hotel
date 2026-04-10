@@ -15,7 +15,7 @@ class RoomsListView extends StatefulWidget {
 }
 
 class _RoomsListViewState extends State<RoomsListView> {
-  final List<RoomEntity> _rooms = RoomsData.featuredRooms;
+  final List<RoomEntity> _rooms = RoomsData.roomsList;
 
   @override
   Widget build(BuildContext context) {

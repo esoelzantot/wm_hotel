@@ -55,7 +55,7 @@ class _VenueViewMobileLayoutState extends State<VenueViewMobileLayout> {
                       child: VenueBookingSection(
                         pricePerHour: widget.venue.price,
                         serviceFee: widget.venue.serviceFee,
-                        onBook: () {},
+                        venue: widget.venue,
                       ),
                     ),
                   ],

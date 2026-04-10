@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/widgets/footer/custom_horizontal_footer.dart';
 import 'package:wm_hotel/core/widgets/header/custom_web_header.dart';
+import 'package:wm_hotel/features/home/data/entities/room_entity.dart';
 import 'package:wm_hotel/features/single_room/presentation/widgets/hero_section/room_hero_section.dart';
 import 'package:wm_hotel/features/single_room/presentation/widgets/room_content/room_booking_section.dart';
 import 'package:wm_hotel/features/single_room/presentation/widgets/room_content/room_info_section.dart';
 
 class RoomViewWebLayout extends StatelessWidget {
-  const RoomViewWebLayout({super.key});
+  final RoomEntity room;
+  const RoomViewWebLayout({super.key, required this.room});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class RoomViewWebLayout extends StatelessWidget {
               // Hero Section
               Padding(
                 padding: const EdgeInsets.all(24),
-                child: RoomHeroSection(),
+                child: RoomHeroSection(room: room),
               ),
 
               // Hero Section
@@ -35,14 +37,7 @@ class RoomViewWebLayout extends StatelessWidget {
                   children: [
                     Expanded(
                       flex: 2,
-                      child: RoomInfoSection(
-                        paragraphs: [
-                          "details 1 ",
-                          "details 1",
-                          "details 1",
-                          "details 1",
-                        ],
-                      ),
+                      child: RoomInfoSection(details: room.details),
                     ),
                     const SizedBox(width: 24),
                     Expanded(
@@ -50,9 +45,9 @@ class RoomViewWebLayout extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 24.0),
                         child: RoomBookingSection(
-                          pricePerNight: 100,
-                          serviceFee: 15,
-                          onBook: () {},
+                          pricePerNight: room.price,
+                          serviceFee: room.serviceFee,
+                          room: room,
                         ),
                       ),
                     ),

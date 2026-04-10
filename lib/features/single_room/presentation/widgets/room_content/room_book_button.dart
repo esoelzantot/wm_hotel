@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:logger/logger.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
+import 'package:wm_hotel/features/home/data/entities/room_entity.dart';
 import 'package:wm_hotel/generated/l10n.dart';
 
 class RoomBookButton extends StatefulWidget {
   final bool canBook;
-  final VoidCallback onBook;
+  final RoomEntity room;
   final DateTime? selectedDate;
   final TimeOfDay? fromTime;
   final TimeOfDay? toTime;
@@ -17,7 +18,7 @@ class RoomBookButton extends StatefulWidget {
   const RoomBookButton({
     super.key,
     required this.canBook,
-    required this.onBook,
+    required this.room,
     this.selectedDate,
     this.fromTime,
     this.toTime,
@@ -74,7 +75,6 @@ class _RoomBookButtonState extends State<RoomBookButton>
           _buttonController.reverse();
           if (widget.canBook) {
             HapticFeedback.mediumImpact();
-            widget.onBook();
           }
         },
         onTapCancel: () => _buttonController.reverse(),

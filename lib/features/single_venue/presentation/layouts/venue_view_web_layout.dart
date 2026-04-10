@@ -47,7 +47,7 @@ class VenueViewWebLayout extends StatelessWidget {
                         child: VenueBookingSection(
                           pricePerHour: venue.price,
                           serviceFee: venue.serviceFee,
-                          onBook: () {},
+                          venue: venue,
                         ),
                       ),
                     ),

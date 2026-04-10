@@ -22,7 +22,7 @@ class _RoomsGridState extends State<RoomsGrid> {
   int crossAxisCount = 3;
   double childAspectRatio = 1.0;
 
-  List<RoomEntity> get _rooms => RoomsData.featuredRooms;
+  List<RoomEntity> get _rooms => RoomsData.roomsList;
 
   int get _totalPages {
     return (_rooms.length / _itemsPerPage).ceil().clamp(1, 999);

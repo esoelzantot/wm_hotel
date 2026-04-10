@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wm_hotel/core/cubits/local_cubit/local_cubit.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
+import 'package:wm_hotel/features/home/data/entities/room_entity.dart';
 
 class RoomHeroContent extends StatefulWidget {
+  final RoomEntity room;
+
   static const _navy = Color(0xFF1A2B5F);
   static const _subtitleGrey = Color(0xFF8A94A6);
 
-  const RoomHeroContent({super.key});
+  const RoomHeroContent({super.key, required this.room});
 
   @override
   State<RoomHeroContent> createState() => _RoomHeroContentState();
@@ -20,38 +25,48 @@ class _RoomHeroContentState extends State<RoomHeroContent> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        // ── Headline ──
-        Text(
-          'Forget Busy Work,\nStart Next Vacation',
-          style: AppStyles.styleBold36(
-            context,
-          ).copyWith(color: RoomHeroContent._navy, fontSize: 40),
-        ),
-        const SizedBox(height: 18),
-        // ── Subtitle ──
-        Text(
-          'We provide what you need to enjoy your holiday\nwith family. Time to make another memorable moments.',
-          style: AppStyles.styleMedium28(
-            context,
-          ).copyWith(color: RoomHeroContent._subtitleGrey),
-        ),
-        const SizedBox(height: 32),
-        // ── Stats row ──
-        Row(
-          children: _stats
-              .map(
-                (s) => Padding(
-                  padding: const EdgeInsets.only(right: 32),
-                  child: _StatWidget(item: s),
-                ),
-              )
-              .toList(),
-        ),
-      ],
+    return BlocBuilder<LocalCubit, LocalState>(
+      builder: (context, state) {
+        final bool isArabic = state is ChangeLocalState
+            ? state.locale.languageCode == 'ar'
+            : true;
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // ── Headline ──
+            Text(
+              isArabic ? widget.room.name.arName : widget.room.name.enName,
+              style: AppStyles.styleBold36(
+                context,
+              ).copyWith(color: RoomHeroContent._navy, fontSize: 40),
+            ),
+            const SizedBox(height: 18),
+
+            // ── Subtitle ──
+            Text(
+              isArabic ? widget.room.brief.arBrief : widget.room.brief.enBrief,
+              style: AppStyles.styleMedium28(
+                context,
+              ).copyWith(color: RoomHeroContent._subtitleGrey),
+            ),
+            const SizedBox(height: 32),
+
+            // ── Stats row ──
+            Row(
+              children: _stats
+                  .map(
+                    (s) => Padding(
+                      padding: const EdgeInsets.only(right: 32),
+                      child: _StatWidget(item: s),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ],
+        );
+      },
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wm_hotel/core/cubits/local_cubit/local_cubit.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
+import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/book_button.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/breakdown_content.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/breakdown_placeholder.dart';
@@ -16,13 +17,13 @@ import 'package:wm_hotel/generated/l10n.dart';
 class VenueBookingSection extends StatefulWidget {
   final num pricePerHour;
   final num serviceFee;
-  final VoidCallback onBook;
+  final VenueEntity venue;
 
   const VenueBookingSection({
     super.key,
     required this.pricePerHour,
     required this.serviceFee,
-    required this.onBook,
+    required this.venue,
   });
 
   @override
@@ -359,7 +360,7 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
                 const SizedBox(height: 20),
 
                 // 5. زر الحجز
-                BookButton(canBook: _canBook, onBook: widget.onBook),
+                BookButton(canBook: _canBook, venue: widget.venue),
                 const SizedBox(height: 12),
 
                 Text(

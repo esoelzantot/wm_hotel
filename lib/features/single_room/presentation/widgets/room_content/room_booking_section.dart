@@ -4,7 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wm_hotel/core/cubits/local_cubit/local_cubit.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
-import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/book_button.dart';
+import 'package:wm_hotel/features/home/data/entities/room_entity.dart';
+import 'package:wm_hotel/features/single_room/presentation/widgets/room_content/room_book_button.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/breakdown_placeholder.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/guests_field.dart';
 import 'package:wm_hotel/generated/l10n.dart';
@@ -12,15 +13,16 @@ import 'package:wm_hotel/generated/l10n.dart';
 import 'room_breakdown_content.dart';
 
 class RoomBookingSection extends StatefulWidget {
-  final double pricePerNight;
-  final double serviceFee;
-  final VoidCallback onBook;
+  final num pricePerNight;
+  final num serviceFee;
+
+  final RoomEntity room;
 
   const RoomBookingSection({
     super.key,
     required this.pricePerNight,
     required this.serviceFee,
-    required this.onBook,
+    required this.room,
   });
 
   @override
@@ -43,9 +45,9 @@ class _RoomBookingSectionState extends State<RoomBookingSection>
     return diff > 0 ? diff : 0;
   }
 
-  double get _nightsTotal => _totalNights * widget.pricePerNight * _rooms;
+  num get _nightsTotal => _totalNights * widget.pricePerNight * _rooms;
 
-  double get _grandTotal =>
+  num get _grandTotal =>
       _nightsTotal > 0 ? _nightsTotal + widget.serviceFee : 0;
 
   bool get _canBook => _fromDate != null && _toDate != null && _totalNights > 0;
@@ -54,7 +56,7 @@ class _RoomBookingSectionState extends State<RoomBookingSection>
   String _formatNights(int n) =>
       '$n ${n == 1 ? S.of(context).night_label : S.of(context).nights_label}';
 
-  String _formatPrice(double v) {
+  String _formatPrice(num v) {
     final s = v.toInt().toString();
     return s.length > 3
         ? '${s.substring(0, s.length - 3)},${s.substring(s.length - 3)}'
@@ -302,7 +304,7 @@ class _RoomBookingSectionState extends State<RoomBookingSection>
                 const SizedBox(height: 20),
 
                 // 5. زر الحجز
-                BookButton(canBook: _canBook, onBook: widget.onBook),
+                RoomBookButton(canBook: _canBook, room: widget.room),
                 const SizedBox(height: 12),
 
                 Text(

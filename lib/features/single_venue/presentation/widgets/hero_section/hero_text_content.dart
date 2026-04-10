@@ -24,7 +24,6 @@ class _HeroTextContentState extends State<HeroTextContent> {
   ];
 
   @override
-  @override
   Widget build(BuildContext context) {
     return BlocBuilder<LocalCubit, LocalState>(
       builder: (context, state) {

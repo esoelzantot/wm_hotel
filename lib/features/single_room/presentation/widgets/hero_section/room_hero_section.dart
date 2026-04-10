@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:wm_hotel/core/config/size_config.dart';
+import 'package:wm_hotel/features/home/data/entities/room_entity.dart';
 import 'package:wm_hotel/features/single_room/presentation/widgets/hero_section/room_gallery_card.dart';
 import 'package:wm_hotel/features/single_room/presentation/widgets/hero_section/room_hero_content.dart';
 
@@ -9,17 +10,9 @@ import 'package:wm_hotel/features/single_room/presentation/widgets/hero_section/
 //  VENUE HERO SECTION
 // ─────────────────────────────────────────────
 class RoomHeroSection extends StatefulWidget {
-  final List<String> imageUrls;
+  final RoomEntity room;
 
-  const RoomHeroSection({
-    super.key,
-    this.imageUrls = const [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
-      'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800',
-      'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800',
-      'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800',
-    ],
-  });
+  const RoomHeroSection({super.key, required this.room});
 
   @override
   State<RoomHeroSection> createState() => _RoomHeroSectionState();
@@ -68,7 +61,7 @@ class _RoomHeroSectionState extends State<RoomHeroSection>
       if (!mounted) return;
       if (!_pageController.hasClients) return;
 
-      final next = (_currentIndex + 1) % widget.imageUrls.length;
+      final next = (_currentIndex + 1) % widget.room.images.length;
       _pageController.animateToPage(
         next,
         duration: const Duration(milliseconds: 600),
@@ -100,9 +93,10 @@ class _RoomHeroSectionState extends State<RoomHeroSection>
             vertical: isWide ? 48 : 24,
           ),
           child: _WideLayout(
+            room: widget.room,
             fadeAnim: _fadeAnim,
             slideAnim: _slideAnim,
-            imageUrls: widget.imageUrls,
+            imageUrls: widget.room.images,
             pageController: _pageController,
             currentIndex: _currentIndex,
             onPageChanged: (i) => setState(() => _currentIndex = i),
@@ -131,6 +125,8 @@ class _RoomHeroSectionState extends State<RoomHeroSection>
 //  WIDE LAYOUT  (side-by-side)
 // ─────────────────────────────────────────────
 class _WideLayout extends StatefulWidget {
+  final RoomEntity room;
+
   final Animation<double> fadeAnim;
   final Animation<Offset> slideAnim;
   final List<String> imageUrls;
@@ -140,6 +136,7 @@ class _WideLayout extends StatefulWidget {
   final ValueChanged<int> onDotTap;
 
   const _WideLayout({
+    required this.room,
     required this.fadeAnim,
     required this.slideAnim,
     required this.imageUrls,
@@ -182,7 +179,7 @@ class _WideLayoutState extends State<_WideLayout> {
                 opacity: widget.fadeAnim,
                 child: SlideTransition(
                   position: widget.slideAnim,
-                  child: RoomHeroContent(),
+                  child: RoomHeroContent(room: widget.room),
                 ),
               ),
             ],
@@ -196,7 +193,7 @@ class _WideLayoutState extends State<_WideLayout> {
                   opacity: widget.fadeAnim,
                   child: SlideTransition(
                     position: widget.slideAnim,
-                    child: RoomHeroContent(),
+                    child: RoomHeroContent(room: widget.room),
                   ),
                 ),
               ),
