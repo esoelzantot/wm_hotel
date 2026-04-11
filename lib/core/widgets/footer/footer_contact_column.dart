@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wm_hotel/core/cubits/local_cubit/local_cubit.dart';
@@ -59,11 +60,19 @@ class FooterContactColumn extends StatelessWidget {
               icon: Icons.mail_outline_rounded,
               text: contact.email,
               onPressed: () async {
-                await sendEmail(
-                  email: "islamelzantot@gmail.com",
-                  subject: "مرحباً",
-                  body: "احتاج الى مساعدة",
-                );
+                if (!kIsWeb) {
+                  await sendEmail(
+                    email: "islamelzantot@gmail.com",
+                    subject: "مرحباً",
+                    body: "احتاج الى مساعدة",
+                  );
+                } else {
+                  await launchEmail(
+                    email: "islamelzantot@gmail.com",
+                    subject: "مرحباً",
+                    body: "احتاج الى مساعدة",
+                  );
+                }
               },
             ),
           ],

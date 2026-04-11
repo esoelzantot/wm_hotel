@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 Future<void> sendEmail({
@@ -26,20 +25,31 @@ Future<void> sendEmail({
   );
 
   try {
-    if (kIsWeb) {
-      /// 🌐 Web Behavior
-      /// نحاول mailto الأول (يفتح app لو متاح)
-      if (await canLaunchUrl(mailtoUri)) {
-        await launchUrl(mailtoUri, mode: LaunchMode.externalApplication);
-      } else {
-        /// fallback → Gmail Web
-        await launchUrl(gmailWebUri, mode: LaunchMode.externalApplication);
-      }
-    } else {
-      /// 📱 Mobile / Desktop Apps
-      await launchUrl(mailtoUri, mode: LaunchMode.externalApplication);
-    }
+    await launchUrl(mailtoUri, mode: LaunchMode.externalApplication);
   } catch (e) {
     throw Exception('Could not launch email client: $e');
+  }
+}
+
+Future<void> launchEmail({
+  required String email,
+  required String subject,
+  required String body,
+}) async {
+  if (email.isEmpty) {
+    throw 'Email cannot be empty';
+  }
+
+  final Uri gmailUri = Uri(
+    scheme: 'https',
+    host: 'mail.google.com',
+    path: '/mail/',
+    queryParameters: {'view': 'cm', 'to': email, 'su': subject, 'body': body},
+  );
+
+  if (await canLaunchUrl(gmailUri)) {
+    await launchUrl(gmailUri, mode: LaunchMode.externalApplication);
+  } else {
+    throw 'Could not open Gmail';
   }
 }
