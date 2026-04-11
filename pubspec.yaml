@@ -89,6 +89,11 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/images/rooms
+    - assets/images/venues
+
+
+  # To add fonts to your application, add a fonts section, like this:
   fonts:
     - family: Beiruti
       fonts:

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wm_hotel/core/functions/lanuch_whatsApp.dart';
@@ -192,19 +191,11 @@ class _VenueBookButtonState extends State<VenueBookButton>
         );
         break;
       case ShareMethod.email:
-        if (kIsWeb) {
-          await sendEmail(
-            email: "islamelzantot@gmail.com",
-            subject: "مشاركة تأكيد الحجز",
-            body: message,
-          );
-        } else {
-          await launchEmail(
-            email: "islamelzantot@gmail.com",
-            subject: "مشاركة تأكيد الحجز",
-            body: message,
-          );
-        }
+        await sendEmail(
+          email: "islamelzantot@gmail.com",
+          subject: "مشاركة تأكيد الحجز",
+          body: message,
+        );
         break;
     }
   }
