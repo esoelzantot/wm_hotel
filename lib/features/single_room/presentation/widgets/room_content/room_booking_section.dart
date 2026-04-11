@@ -304,9 +304,18 @@ class _RoomBookingSectionState extends State<RoomBookingSection>
                 const SizedBox(height: 20),
 
                 // 5. زر الحجز
-                RoomBookButton(canBook: _canBook, room: widget.room),
+                RoomBookButton(
+                  canBook: _canBook,
+                  room: widget.room,
+                  fromDate: _fromDate,
+                  toDate: _toDate,
+                  totalNights: _totalNights,
+                  nightsTotal: _nightsTotal,
+                  grandTotal: _grandTotal,
+                  guests: _guests,
+                  rooms: _rooms,
+                ),
                 const SizedBox(height: 12),
-
 
                 Text(
                   S.of(context).breakdown_guest_info,

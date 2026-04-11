@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:logger/logger.dart';
+import 'package:wm_hotel/core/functions/lanuch_whatsApp.dart';
+import 'package:wm_hotel/core/functions/launch_email.dart';
+import 'package:wm_hotel/core/helpers/share_booking_dialog.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
 import 'package:wm_hotel/features/home/data/entities/room_entity.dart';
 import 'package:wm_hotel/generated/l10n.dart';
@@ -8,23 +10,27 @@ import 'package:wm_hotel/generated/l10n.dart';
 class RoomBookButton extends StatefulWidget {
   final bool canBook;
   final RoomEntity room;
-  final DateTime? selectedDate;
-  final TimeOfDay? fromTime;
-  final TimeOfDay? toTime;
-  final double totalHours;
-  final double hoursTotal;
-  final double grandTotal;
+  final DateTime? fromDate;
+  final DateTime? toDate;
+  final int totalNights;
+  final num nightsTotal;
+  final num grandTotal;
+
+  final int guests;
+
+  final int rooms;
 
   const RoomBookButton({
     super.key,
     required this.canBook,
     required this.room,
-    this.selectedDate,
-    this.fromTime,
-    this.toTime,
-    this.totalHours = 0,
-    this.hoursTotal = 0,
-    this.grandTotal = 0,
+    required this.fromDate,
+    required this.toDate,
+    required this.totalNights,
+    required this.nightsTotal,
+    required this.grandTotal,
+    required this.guests,
+    required this.rooms,
   });
 
   @override
@@ -56,12 +62,88 @@ class _RoomBookButtonState extends State<RoomBookButton>
     super.dispose();
   }
 
-  void _onTap() {
-    Logger().i(
-      "DAY ${widget.selectedDate} || FROM ${widget.fromTime} || TO ${widget.toTime} "
-      "|| TOTAL HOURS ${widget.totalHours} || HOURS TOTAL ${widget.hoursTotal} "
-      "|| GRAND TOTAL ${widget.grandTotal}",
+  String generateBookingConfirmationMessage({
+    required DateTime? fromDay,
+    required DateTime? toDay,
+    required int totalNights,
+    required num nightsTotalCost,
+    required num grandTotal,
+    required int guestsCount,
+    required int roomsCount,
+    required num pricePerNight,
+    required String roomName,
+  }) {
+    final from = "${fromDay!.year}-${_pad(fromDay.month)}-${_pad(fromDay.day)}";
+    final to = "${toDay!.year}-${_pad(toDay.month)}-${_pad(toDay.day)}";
+    final serviceFee = grandTotal - nightsTotalCost;
+
+    return """
+━━━━━━━━━━━━━━━━━━━━━━
+        تأكيد الحجز ✅
+━━━━━━━━━━━━━━━━━━━━━━
+
+🏢 الغرفة : $roomName
+
+🕐 من يوم : $from
+🕑 إلى يوم : $to
+⏱ إجمالي الليالي : $totalNights ليالي
+👥 عدد الضيوف : $guestsCount ضيوف
+
+━━━━━━━━━━━━━━━━━━━━━━
+        تفاصيل التكلفة
+━━━━━━━━━━━━━━━━━━━━━━
+
+💰 تكلفة الليلة للضيف : ${pricePerNight.toStringAsFixed(0)} ر.س
+💰 تكلفة الليالي : ${nightsTotalCost.toStringAsFixed(0)} ر.س
+🔧 رسوم الخدمة : ${serviceFee.toStringAsFixed(0)} ر.س
+                  ──────────
+💵 الإجمالي الكلي : ${grandTotal.toStringAsFixed(0)} ر.س
+
+━━━━━━━━━━━━━━━━━━━━━━
+شكراً لحجزك معنا 🙏
+نتطلع لاستقبالك!
+━━━━━━━━━━━━━━━━━━━━━━
+""";
+  }
+
+  String _pad(int n) => n.toString().padLeft(2, '0');
+
+  void _onTap() async {
+    final message = generateBookingConfirmationMessage(
+      fromDay: widget.fromDate,
+      toDay: widget.toDate,
+      totalNights: widget.totalNights,
+      nightsTotalCost: widget.nightsTotal,
+      grandTotal: widget.grandTotal,
+      guestsCount: widget.guests,
+      roomsCount: widget.rooms,
+      pricePerNight: widget.room.price,
+      roomName: widget.room.name.arName,
     );
+
+    final ShareMethod? method = await showDialog<ShareMethod>(
+      context: context,
+      builder: (_) => const ShareBookingDialog(),
+    );
+
+    if (method == null || !mounted) return;
+
+    switch (method) {
+      case ShareMethod.whatsapp:
+        openWhatsApp(
+          context: context,
+          phone: "+201152704324",
+          content: message,
+        );
+        break;
+      case ShareMethod.email:
+        sendEmail(
+          email: "islamelzantot@gmail.com",
+          subject: "مشاركة تأكيد الحجز",
+          body: message,
+        );
+        break;
+    }
   }
 
   @override
@@ -94,7 +176,7 @@ class _RoomBookButtonState extends State<RoomBookButton>
             boxShadow: widget.canBook
                 ? [
                     BoxShadow(
-                      color: const Color(0xFF1A56DB).withOpacity(0.35),
+                      color: const Color(0xFF1A56DB).withValues(alpha: 0.35),
                       blurRadius: 16,
                       offset: const Offset(0, 6),
                     ),
