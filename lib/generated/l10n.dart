@@ -544,6 +544,66 @@ class S {
     );
   }
 
+  /// `Share Booking Confirmation`
+  String get share_booking_dialog_title {
+    return Intl.message(
+      'Share Booking Confirmation',
+      name: 'share_booking_dialog_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose Sending Method`
+  String get share_booking_dialog_subtitle {
+    return Intl.message(
+      'Choose Sending Method',
+      name: 'share_booking_dialog_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send via WhatsApp`
+  String get share_booking_dialog_whatsapp_option {
+    return Intl.message(
+      'Send via WhatsApp',
+      name: 'share_booking_dialog_whatsapp_option',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send via Email`
+  String get share_booking_dialog_email_option {
+    return Intl.message(
+      'Send via Email',
+      name: 'share_booking_dialog_email_option',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send`
+  String get share_booking_dialog_send_button {
+    return Intl.message(
+      'Send',
+      name: 'share_booking_dialog_send_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get share_booking_dialog_cancel_button {
+    return Intl.message(
+      'Cancel',
+      name: 'share_booking_dialog_cancel_button',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Show Details`
   String get details_button {
     return Intl.message(

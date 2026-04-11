@@ -119,6 +119,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "rooms_tab": MessageLookupByLibrary.simpleMessage("Rooms"),
     "select_date_label": MessageLookupByLibrary.simpleMessage("Select Date"),
     "services_tab": MessageLookupByLibrary.simpleMessage("Services"),
+    "share_booking_dialog_cancel_button": MessageLookupByLibrary.simpleMessage(
+      "Cancel",
+    ),
+    "share_booking_dialog_email_option": MessageLookupByLibrary.simpleMessage(
+      "Send via Email",
+    ),
+    "share_booking_dialog_send_button": MessageLookupByLibrary.simpleMessage(
+      "Send",
+    ),
+    "share_booking_dialog_subtitle": MessageLookupByLibrary.simpleMessage(
+      "Choose Sending Method",
+    ),
+    "share_booking_dialog_title": MessageLookupByLibrary.simpleMessage(
+      "Share Booking Confirmation",
+    ),
+    "share_booking_dialog_whatsapp_option":
+        MessageLookupByLibrary.simpleMessage("Send via WhatsApp"),
     "show_all_rooms_button": MessageLookupByLibrary.simpleMessage(
       "View All Rooms",
     ),

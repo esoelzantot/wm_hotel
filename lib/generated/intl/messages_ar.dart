@@ -117,6 +117,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "rooms_tab": MessageLookupByLibrary.simpleMessage("الغرف"),
     "select_date_label": MessageLookupByLibrary.simpleMessage("اختار اليوم"),
     "services_tab": MessageLookupByLibrary.simpleMessage("خدماتنا"),
+    "share_booking_dialog_cancel_button": MessageLookupByLibrary.simpleMessage(
+      "إلغاء",
+    ),
+    "share_booking_dialog_email_option": MessageLookupByLibrary.simpleMessage(
+      "إرسال عبر الايميل",
+    ),
+    "share_booking_dialog_send_button": MessageLookupByLibrary.simpleMessage(
+      "إرسال",
+    ),
+    "share_booking_dialog_subtitle": MessageLookupByLibrary.simpleMessage(
+      "اختر طريقة الإرسال",
+    ),
+    "share_booking_dialog_title": MessageLookupByLibrary.simpleMessage(
+      "مشاركة تأكيد الحجز",
+    ),
+    "share_booking_dialog_whatsapp_option":
+        MessageLookupByLibrary.simpleMessage("إرسال عبر الواتساب"),
     "show_all_rooms_button": MessageLookupByLibrary.simpleMessage(
       "استعرض جميع الغرف",
     ),

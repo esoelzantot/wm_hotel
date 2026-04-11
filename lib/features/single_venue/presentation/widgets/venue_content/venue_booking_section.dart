@@ -5,10 +5,10 @@ import 'package:wm_hotel/core/cubits/local_cubit/local_cubit.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
 import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
-import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/book_button.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/breakdown_content.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/breakdown_placeholder.dart';
 import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/guests_field.dart';
+import 'package:wm_hotel/features/single_venue/presentation/widgets/venue_content/venue_book_button.dart';
 import 'package:wm_hotel/generated/l10n.dart';
 
 // ─────────────────────────────────────────────
@@ -38,7 +38,6 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
   int _guests = 3;
 
   late AnimationController _buttonController;
-  late Animation<double> _buttonScale;
 
   // ── Computed ─────────────────────────────────
   double get _totalHours {
@@ -151,9 +150,6 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
       vsync: this,
       duration: const Duration(milliseconds: 120),
     );
-    _buttonScale = Tween<double>(begin: 1.0, end: 0.96).animate(
-      CurvedAnimation(parent: _buttonController, curve: Curves.easeOut),
-    );
   }
 
   @override
@@ -218,13 +214,6 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
       return;
     }
 
-    final isRtl =
-        (context.read<LocalCubit>().state is ChangeLocalState
-                ? (context.read<LocalCubit>().state as ChangeLocalState).locale
-                : const Locale('ar'))
-            .languageCode ==
-        'ar';
-
     final initial = isFrom
         ? (_fromTime ?? const TimeOfDay(hour: 9, minute: 0))
         : (_toTime ?? const TimeOfDay(hour: 11, minute: 0));
@@ -236,7 +225,7 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
         data: Theme.of(ctx).copyWith(
           timePickerTheme: TimePickerThemeData(
             backgroundColor: Colors.white,
-            hourMinuteColor: const Color(0xFF1A56DB).withOpacity(0.08),
+            hourMinuteColor: const Color(0xFF1A56DB).withValues(alpha: 0.08),
             hourMinuteTextColor: const Color(0xFF1A56DB),
             dialHandColor: const Color(0xFF1A56DB),
             dialBackgroundColor: const Color(0xFFEEF2FF),
@@ -256,10 +245,11 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
     if (picked != null && mounted) {
       HapticFeedback.lightImpact();
       setState(() {
-        if (isFrom)
+        if (isFrom) {
           _fromTime = picked;
-        else
+        } else {
           _toTime = picked;
+        }
       });
     }
   }
@@ -302,12 +292,12 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF1A56DB).withOpacity(0.07),
+            color: const Color(0xFF1A56DB).withValues(alpha: 0.07),
             blurRadius: 32,
             offset: const Offset(0, 8),
           ),
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: Colors.black.withValues(alpha: 0.04),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -360,7 +350,17 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
                 const SizedBox(height: 20),
 
                 // 5. زر الحجز
-                BookButton(canBook: _canBook, venue: widget.venue),
+                VenueBookButton(
+                  canBook: _canBook,
+                  venue: widget.venue,
+                  guests: _guests,
+                  selectedDate: _selectedDate,
+                  fromTime: _fromTime,
+                  toTime: _toTime,
+                  totalHours: _totalHours,
+                  hoursTotal: _hoursTotal,
+                  grandTotal: _grandTotal,
+                ),
                 const SizedBox(height: 12),
 
                 Text(
@@ -449,7 +449,7 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: hasValue
-                ? const Color(0xFF1A56DB).withOpacity(0.3)
+                ? const Color(0xFF1A56DB).withValues(alpha: 0.3)
                 : const Color(0xFFE8E8E8),
             width: 1.5,
           ),
@@ -572,7 +572,7 @@ class _VenueBookingSectionState extends State<VenueBookingSection>
                 ),
                 const SizedBox(width: 6),
                 Text(
-                  hasValue ? _formatTime(time!) : '--:--',
+                  hasValue ? _formatTime(time) : '--:--',
                   style: AppStyles.styleBold18(context).copyWith(
                     color: !isEnabled
                         ? Colors.grey.shade300

@@ -74,6 +74,13 @@
   "our_advantages_title": "ما الذي يجعل \"وايت مون\" اختيارك الأول؟",
   "our_advantages_content": "نحن لا نقدم مجرد مكان للإقامة، بل نصنع تجربة فندقية استثنائية ترتكز على أدق تفاصيل راحتكم.",
 
+  "share_booking_dialog_title": "مشاركة تأكيد الحجز",
+  "share_booking_dialog_subtitle": "اختر طريقة الإرسال",
+  "share_booking_dialog_whatsapp_option": "إرسال عبر الواتساب",
+  "share_booking_dialog_email_option": "إرسال عبر الايميل",
+  "share_booking_dialog_send_button": "إرسال",
+  "share_booking_dialog_cancel_button": "إلغاء",
+
   "details_button": "عرض التفاصيل",
   "currency_symbol": "ر.س"
 }

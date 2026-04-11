@@ -307,6 +307,7 @@ class _RoomBookingSectionState extends State<RoomBookingSection>
                 RoomBookButton(canBook: _canBook, room: widget.room),
                 const SizedBox(height: 12),
 
+
                 Text(
                   S.of(context).breakdown_guest_info,
                   style: AppStyles.styleMedium14(

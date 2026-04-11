@@ -88,18 +88,6 @@ class AppRouter {
           SingleRoomView(room: state.extra as RoomEntity),
         ),
       ),
-
-      // ============================================================
-      // Asky Screen - Smooth Fade
-      // ============================================================
-      // GoRoute(
-      //   path: EndPoints.askyView,
-      //   name: 'Asky View',
-      //   pageBuilder: (context, state) => AppTransitions.smoothFade(
-      //     state.pageKey,
-      //     const AskyView(),
-      //   ),
-      // ),
     ],
 
     // Custom error page with smooth fade
