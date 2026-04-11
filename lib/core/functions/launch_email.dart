@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:url_launcher/url_launcher.dart';
 
 Future<void> sendEmail({
@@ -28,21 +30,30 @@ Future<void> launchEmail({
   required String subject,
   required String body,
 }) async {
-  // Ensure email is not empty
-  if (email.isEmpty) {
-    throw 'Email cannot be null or empty';
+  if (email.isEmpty) throw 'Email cannot be null or empty';
+
+  if (Platform.isAndroid) {
+    final Uri gmailIntent = Uri(
+      scheme: 'googlegmail',
+      path: '/co',
+      queryParameters: {'to': email, 'su': subject, 'body': body},
+    );
+
+    if (await canLaunchUrl(gmailIntent)) {
+      await launchUrl(gmailIntent);
+      return;
+    }
   }
 
-  // Create a mailto Uri
-  final Uri emailUri = Uri(
+  // fallback: mailto لو Gmail مش متثبت
+  final Uri mailtoUri = Uri(
     scheme: 'mailto',
     path: email,
     queryParameters: {'subject': subject, 'body': body},
   );
 
-  // Check if the email URI can be launched
-  if (await canLaunchUrl(emailUri)) {
-    await launchUrl(emailUri);
+  if (await canLaunchUrl(mailtoUri)) {
+    await launchUrl(mailtoUri);
   } else {
     throw 'Could not launch email client';
   }
