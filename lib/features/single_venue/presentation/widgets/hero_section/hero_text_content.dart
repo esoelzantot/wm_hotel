@@ -18,9 +18,9 @@ class HeroTextContent extends StatefulWidget {
 
 class _HeroTextContentState extends State<HeroTextContent> {
   static const _stats = [
-    _StatItem(Icons.luggage_outlined, '2500', 'Users'),
-    _StatItem(Icons.camera_alt_outlined, '200', 'treasure'),
-    _StatItem(Icons.location_on_outlined, '100', 'cities'),
+    _StatItem(Icons.wifi, '2500', 'WiFi'),
+    _StatItem(Icons.local_cafe_outlined, '200', 'Cafe'),
+    _StatItem(Icons.restaurant_menu_outlined, '100', 'Restaurant'),
   ];
 
   @override

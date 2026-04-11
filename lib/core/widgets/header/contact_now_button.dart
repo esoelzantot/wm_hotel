@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:wm_hotel/core/functions/lanuch_whatsApp.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
+import 'package:wm_hotel/features/home/data/content/contact_us_data.dart';
+import 'package:wm_hotel/features/home/data/entities/contact_us_entity.dart';
 import 'package:wm_hotel/generated/l10n.dart';
 
 class ContactNowButton extends StatefulWidget {
@@ -14,12 +17,18 @@ class ContactNowButtonState extends State<ContactNowButton> {
 
   @override
   Widget build(BuildContext context) {
+    ContactUsEntity contact = contactData;
+
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () {},
+        onTap: () => openWhatsApp(
+          context: context,
+          content: "مرحباً احتاج الى مساعدة",
+          phone: contact.phone,
+        ),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
           curve: Curves.easeOut,

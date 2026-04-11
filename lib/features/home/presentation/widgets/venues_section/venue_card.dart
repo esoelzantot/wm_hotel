@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wm_hotel/core/cubits/local_cubit/local_cubit.dart';
+import 'package:wm_hotel/core/functions/entity_cache.dart';
 import 'package:wm_hotel/core/routing/end_points.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
 import 'package:wm_hotel/core/widgets/buttons/custom_animated_button.dart';
@@ -192,9 +193,16 @@ class _VenueCardState extends State<VenueCard>
 
           // Action Button
           CustomAnimatedButton(
-            onTap: () => GoRouter.of(
-              context,
-            ).push(EndPoints.singleVenueView, extra: widget.venue),
+            onTap: () {
+              VenueCache.set(widget.venue); // ✅ save before navigate
+              GoRouter.of(context).push(
+                EndPoints.singleVenueView.replaceAll(
+                  'id',
+                  widget.venue.venueId,
+                ),
+                extra: widget.venue,
+              );
+            },
             title: S.of(context).details_button,
             backgroundColor: const Color(0xFFFF6B00),
           ),

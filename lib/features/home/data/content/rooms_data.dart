@@ -4,6 +4,7 @@ class RoomsData {
   static const List<RoomEntity> roomsList = [
     // 1. جناح وايت مون الملكي (مستوحى من room_1)
     RoomEntity(
+      roomId: "room_1",
       name: RoomName(
         arName: "جناح وايت مون الملكي",
         enName: "White Moon Royal Suite",
@@ -47,6 +48,8 @@ class RoomsData {
 
     // 2. الغرفة التنفيذية (مستوحى من room_2)
     RoomEntity(
+      roomId: "room_2",
+
       name: RoomName(
         arName: "الغرفة التنفيذية الفاخرة",
         enName: "Luxury Executive Room",
@@ -90,6 +93,7 @@ class RoomsData {
 
     // 3. جناح العائلات (مستوحى من room_3)
     RoomEntity(
+      roomId: "room_3",
       name: RoomName(
         arName: "جناح العائلات الفسيح",
         enName: "Spacious Family Suite",
@@ -133,6 +137,7 @@ class RoomsData {
 
     // 4. غرفة ديلوكس المزدوجة (مستوحى من room_4)
     RoomEntity(
+      roomId: "room_4",
       name: RoomName(
         arName: "غرفة ديلوكس مزدوجة",
         enName: "Deluxe Double Room",
@@ -175,6 +180,7 @@ class RoomsData {
 
     // 5. غرفة بريميوم الفردية (مستوحى من room_5)
     RoomEntity(
+      roomId: "room_5",
       name: RoomName(
         arName: "غرفة بريميوم فردية",
         enName: "Premium Single Room",
@@ -217,6 +223,7 @@ class RoomsData {
 
     // 6. جناح جونيور المطل (مستوحى من room_6)
     RoomEntity(
+      roomId: "room_6",
       name: RoomName(arName: "جناح جونيور المطل", enName: "Junior View Suite"),
       brief: RoomBrief(
         arBrief: "إطلالة فريدة ومساحة أنيقة تمنحك شعوراً بالحرية.",
@@ -256,6 +263,7 @@ class RoomsData {
 
     // 7. جناح الرؤساء (مستوحى من room_7)
     RoomEntity(
+      roomId: "room_7",
       name: RoomName(
         arName: "جناح الرؤساء (Presidential)",
         enName: "Presidential Suite",
@@ -298,6 +306,7 @@ class RoomsData {
 
     // 8. الغرفة البانورامية (مستوحى من room_8)
     RoomEntity(
+      roomId: "room_8",
       name: RoomName(
         arName: "الغرفة البانورامية الحديثة",
         enName: "Modern Panoramic Room",

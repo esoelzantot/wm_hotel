@@ -71,10 +71,18 @@ class AppRouter {
       GoRoute(
         path: EndPoints.singleVenueView,
         name: 'Venue Details',
-        pageBuilder: (context, state) => AppTransitions.fadeForDetails(
-          state.pageKey,
-          SingleVenueView(venue: state.extra as VenueEntity),
-        ),
+        pageBuilder: (context, state) {
+          final venue = state.extra as VenueEntity?;
+
+          if (venue == null) {
+            return AppTransitions.smoothFade(state.pageKey, const VenuesView());
+          }
+
+          return AppTransitions.fadeForDetails(
+            state.pageKey,
+            SingleVenueView(venue: venue),
+          );
+        },
       ),
 
       // ============================================================
@@ -83,10 +91,18 @@ class AppRouter {
       GoRoute(
         path: EndPoints.singleRoomView,
         name: 'Room Details',
-        pageBuilder: (context, state) => AppTransitions.fadeForDetails(
-          state.pageKey,
-          SingleRoomView(room: state.extra as RoomEntity),
-        ),
+        pageBuilder: (context, state) {
+          final room = state.extra as RoomEntity?;
+
+          if (room == null) {
+            return AppTransitions.smoothFade(state.pageKey, const RoomsView());
+          }
+
+          return AppTransitions.fadeForDetails(
+            state.pageKey,
+            SingleRoomView(room: room),
+          );
+        },
       ),
     ],
 

@@ -5,6 +5,8 @@ import 'package:wm_hotel/core/functions/lanuch_whatsApp.dart';
 import 'package:wm_hotel/core/functions/launch_email.dart';
 import 'package:wm_hotel/core/helpers/share_booking_dialog.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
+import 'package:wm_hotel/features/home/data/content/contact_us_data.dart';
+import 'package:wm_hotel/features/home/data/entities/contact_us_entity.dart';
 import 'package:wm_hotel/features/home/data/entities/venue_entity.dart';
 import 'package:wm_hotel/generated/l10n.dart';
 
@@ -164,6 +166,8 @@ class _VenueBookButtonState extends State<VenueBookButton>
   }
 
   void _onTap() async {
+    ContactUsEntity contact = contactData;
+
     final message = generateBookingConfirmationMessage(
       bookingDay: widget.selectedDate,
       fromTime: widget.fromTime,
@@ -185,22 +189,18 @@ class _VenueBookButtonState extends State<VenueBookButton>
 
     switch (method) {
       case ShareMethod.whatsapp:
-        openWhatsApp(
-          context: context,
-          phone: "+201152704324",
-          content: message,
-        );
+        openWhatsApp(context: context, phone: contact.phone, content: message);
         break;
       case ShareMethod.email:
         if (!kIsWeb) {
           await sendEmail(
-            email: "islamelzantot@gmail.com",
+            email: contact.email,
             subject: "مشاركة تأكيد الحجز",
             body: message,
           );
         } else {
           await launchEmail(
-            email: "islamelzantot@gmail.com",
+            email: contact.email,
             subject: "مشاركة تأكيد الحجز",
             body: message,
           );

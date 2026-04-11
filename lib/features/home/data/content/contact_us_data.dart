@@ -8,6 +8,6 @@ AddressEntity address = AddressEntity(
 ContactUsEntity contactData = ContactUsEntity(
   address: address,
   phone: "+966563634646",
-  email: "info@whitemoon.online",
+  email: "whitmoon044@gmail.com",
   map: "https://maps.app.goo.gl/K3F2VS2MLbKtRiXp8",
 );

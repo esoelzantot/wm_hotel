@@ -5,9 +5,9 @@ abstract class EndPoints {
 
   static const String venuesView = '/venuesView';
 
-  static const String singleRoomView = '/singleRoomView';
+  static const String singleRoomView = '/room/:id';
 
-  static const String singleVenueView = '/singleVenueView';
+  static const String singleVenueView = '/venue/:id';
 
   static const String aboutUsView = '/aboutUsView';
 }

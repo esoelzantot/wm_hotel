@@ -1,4 +1,5 @@
 class RoomEntity {
+  final String roomId;
   final RoomName name;
   final RoomBrief brief;
   final List<String> images;
@@ -9,6 +10,7 @@ class RoomEntity {
   final List<RoomDetails> details;
 
   const RoomEntity({
+    required this.roomId,
     required this.name,
     required this.brief,
     required this.images,

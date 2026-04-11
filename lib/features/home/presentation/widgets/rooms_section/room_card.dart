@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wm_hotel/core/cubits/local_cubit/local_cubit.dart';
+import 'package:wm_hotel/core/functions/entity_cache.dart';
 import 'package:wm_hotel/core/routing/end_points.dart';
 import 'package:wm_hotel/core/utils/app_colors.dart';
 import 'package:wm_hotel/core/utils/app_styles.dart';
@@ -175,9 +176,13 @@ class RoomCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               CustomAnimatedButton(
-                onTap: () => GoRouter.of(
-                  context,
-                ).push(EndPoints.singleRoomView, extra: room),
+                onTap: () {
+                  RoomCache.set(room); // ✅ save before navigate
+                  GoRouter.of(context).push(
+                    EndPoints.singleRoomView.replaceAll('id', room.roomId),
+                    extra: room,
+                  );
+                },
                 title: S.of(context).details_button,
                 backgroundColor: const Color(0xFFFF6B00),
               ),

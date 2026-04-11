@@ -62,13 +62,13 @@ class FooterContactColumn extends StatelessWidget {
               onPressed: () async {
                 if (!kIsWeb) {
                   await sendEmail(
-                    email: "islamelzantot@gmail.com",
+                    email: contact.email,
                     subject: "مرحباً",
                     body: "احتاج الى مساعدة",
                   );
                 } else {
                   await launchEmail(
-                    email: "islamelzantot@gmail.com",
+                    email: contact.email,
                     subject: "مرحباً",
                     body: "احتاج الى مساعدة",
                   );

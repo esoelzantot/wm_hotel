@@ -4,6 +4,7 @@ class PlacesData {
   static const List<VenueEntity> venuesList = [
     // 1. الممر الخارجي المضاء (image_8.png)
     VenueEntity(
+      venueId: "venue_1",
       name: VenueName(
         arName: "تراس النخيل الخارجي",
         enName: "Palm Terrace Walkway",
@@ -30,6 +31,7 @@ class PlacesData {
 
     // 2. البهو الرئيسي العصري (image_9.png)
     VenueEntity(
+      venueId: "venue_2",
       name: VenueName(
         arName: "البهو الرئيسي واللاونج",
         enName: "Main Lobby & Lounge",
@@ -56,6 +58,7 @@ class PlacesData {
 
     // 3. منطقة الكافيه والعمل المشترك (image_10.png)
     VenueEntity(
+      venueId: "venue_3",
       name: VenueName(
         arName: "ركن القهوة والعمل المشترك",
         enName: "Coffee & Coworking Corner",
@@ -82,6 +85,7 @@ class PlacesData {
 
     // 4. ركن المشروبات والحلويات (image_11.png)
     VenueEntity(
+      venueId: "venue_4",
       name: VenueName(arName: "وايت مون كافيه", enName: "White Moon Cafe"),
       brief: VenueBrief(
         arBrief: "استمتع بتشكيلة من القهوة المختصة والحلويات الطازجة.",
@@ -102,6 +106,7 @@ class PlacesData {
 
     // 5. اللاونج الصناعي العصري (image_12.png)
     VenueEntity(
+      venueId: "venue_5",
       name: VenueName(
         arName: "اللاونج الصناعي (Industrial)",
         enName: "The Industrial Lounge",
@@ -130,6 +135,7 @@ class PlacesData {
 
     // 6. التراس الخارجي للفطور (image_13.png)
     VenueEntity(
+      venueId: "venue_6",
       name: VenueName(
         arName: "تراس الفطور الشمسي",
         enName: "Sunny Breakfast Terrace",
@@ -156,6 +162,7 @@ class PlacesData {
 
     // 7. منطقة الدخول الفخمة (image_14.png)
     VenueEntity(
+      venueId: "venue_7",
       name: VenueName(
         arName: "المدخل الملكي واللاونج",
         enName: "Royal Entrance & Lounge",
@@ -182,6 +189,7 @@ class PlacesData {
 
     // 8. لاونج الرخام والذهبي (image_15.png)
     VenueEntity(
+      venueId: "venue_8",
       name: VenueName(
         arName: "لاونج الرخام التنفيذي",
         enName: "Executive Marble Lounge",

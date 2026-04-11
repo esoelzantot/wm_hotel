@@ -1,4 +1,5 @@
 class VenueEntity {
+  final String venueId;
   final VenueName name;
   final VenueBrief brief;
   final List<String> images;
@@ -9,6 +10,7 @@ class VenueEntity {
   final List<VenueDetails> details;
 
   const VenueEntity({
+    required this.venueId,
     required this.name,
     required this.brief,
     required this.images,
